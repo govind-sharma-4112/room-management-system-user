@@ -1,0 +1,60 @@
+table,tr{
+    border: 1px solid black;
+    width:100%
+}
+#first{
+    background-color: #211f1f;
+    color:white;
+}
+
+ul{
+
+    display: inline;
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.collapse form{
+    padding-left:100px;
+    padding-right:300px;
+
+}
+.collapse input{
+    width: 500px;
+}
+#home{
+    padding-left: 100px;
+}
+.navbar{
+    margin-bottom: 50px;
+}
+
+h4{
+    padding-bottom: 30px;
+}
+#pagination{
+    margin-top:100px
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    background-color: black;
+    margin-top: 70px;
+    padding: 3em;
+}
+.footerLinks{
+    padding: 10px;
+    margin-top: 20px;
+}
+.footerLinkList{
+    margin: 10px;
+}
+.footerLinkList li{
+    list-style: none;
+    color: #fff;
+}
