@@ -14,31 +14,27 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <img src="../images/AveryBit-84.png" height="30" alt="averybit logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" style="padding-left:120px ">crete slot</a>
-                </li>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
-            </ul>
-        </div>
+<div class="page-header">
+    <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
+        <i class="fa fa-bars"></i>
+    </a>
+    <div class="logo">
+        <img src="../images/image%20(1).jpg" alt="">
     </div>
-</nav>
+    <div style="margin-left: 80px; margin-top:10px;">
+        <a style="text-decoration: none;margin-left: 20px; color: #fff; font-size: 1.7em;" href="#" class="active"><i class="fa-solid fa-house"></i></a>
+        <a style=" text-decoration: none;margin-left: 20px; color: #fff; font-size: 1.7em;" href="#" class="active"><i class="fa-solid fa-address-book"></i>            </a>
+    </div>
+    <div id="navigation-bar" class="nav-bar" style="display: flex ; align-items: center;">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 300px;height: 35px;">
+        </form>
+    </div>
+    <div class="header-right"><a href=""><svg xmlns="http://www.w3.org/2000/svg" color="white" width="35" height="35" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+    </svg></a></div>
+</div>
 
 <h4>Team Members</h4>
 <table>
