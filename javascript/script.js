@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (emailInput.value === userData.email && passwordInput.value === userData.password) {
           // Successful login
-          alert('Login successful!');
+          // alert('Login successful!');
           // Redirect to another page or perform other actions
         //   document.open('Profile.html');
         //   window.open('Profile.html');
-            window.location.replace("/html/daskbord.html");
+            window.location.replace("/room-management-system-user/html/daskbord.html");
 
         } else {
           // Invalid credentials
