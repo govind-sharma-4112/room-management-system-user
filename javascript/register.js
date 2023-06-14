@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Display success message or redirect to another page
       alert('Registration successful! You can now login.');
-      window.location.replace("Index.html");
+      window.location.replace("/html/Index.html");
     });
   });
   
