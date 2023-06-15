@@ -2,254 +2,281 @@
 <html>
 
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #c9eeff;
-    }
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c9eeff;
+        }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    .card {
-      background-color: #ffffff;
-      width: 350px;
-      padding: 30px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        .card {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333333;
-    }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333333;
+        }
 
-    .form-group {
-      margin-bottom: 20px;
-      position: relative;
-    }
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-    input[type="text"],
-    input[type="date"],
-    input[type="time"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #cccccc;
-      border-radius: 4px;
-    }
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
 
-    #inputParticipant{
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #cccccc;
-      border-radius: 4px;
-    }
+        #inputParticipant {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
 
-    #discription-form {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #cccccc;
-      border-radius: 4px;
-    }
+        #discription-form {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
 
-    .appointment-time {
-      display: flex;
-      justify-content: space-around;
-    }
+        .appointment-time {
+            display: flex;
+            justify-content: space-around;
+        }
 
-    .button {
-      display: flex;
-      justify-content: space-around;
-    }
+        .button {
+            display: flex;
+            justify-content: space-around;
+        }
 
-    button {
-      padding: 10px;
-      background-color: #1bb7ff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+        button {
+            padding: 10px;
+            background-color: #1bb7ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    button:hover {
-      background-color: #62CDFF;
-    }
-  </style>
+        button:hover {
+            background-color: #62CDFF;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div class="card">
-      <h1>Add Appoinment</h1>
-      <form id="appoinment-form" action="#">
-        <div class="form-group">
-          <label for="title-form">Title</label>
-          <input type="text" id="title-form" placeholder="Enter your title" required>
-        </div>
-        <div class="form-group">
-          <label for="startDate-form">Date</label>
-          <input type="date" id="startDate-form" placeholder="Enter start time" required>
-        </div>
-        <div class="appointment-time">
-          <div class="form-group">
-            <label for="starton-form">Start time</label>
-            <input type="time" id="starton-form" placeholder="Enter start time" required>
-          </div>
-          <div class="form-group">
-            <label for="endson-form">End time</label>
-            <input type="time" id="endson-form" placeholder="Enter end time" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="discription-form">Discription</label>
-          <!-- <input type="textfield" id="discription-form" placeholder="Enter text here..."> -->
-          <textarea name="discription-form" id="discription-form" cols="20" rows="4"
-            placeholder="Enter text here..."></textarea>
-        </div>
-        <div class="form-group">
-          <!-- <label for="participant-form">Add Participants</label>
-          <input type="text" id="participant-form" placeholder="Enter Name "> -->
-          <!-- <div id="inputParticipant">
-            <ul id="participant-form">
-              
-            </ul>
-          </div> -->
-          <label for="participant-form">Add Participants</label>
-<!-- <input type="text" id="participant-form" placeholder="Enter name"> -->
-<div id="inputParticipant">
-  <ul id="participant-form-list"></ul>
-</div>
-          
+        <h1>Add Appoinment</h1>
+        <form id="appoinment-form" action="#">
+            <div class="form-group">
+                <label for="title-form">Title</label>
+                <input type="text" id="title-form" placeholder="Enter your title" required>
+            </div>
+            <div class="form-group">
+                <label for="startDate-form">Date</label>
+                <input type="date" id="startDate-form" placeholder="Enter start time" required>
+            </div>
+            <div class="appointment-time">
+                <div class="form-group">
+                    <label for="starton-form">Start time</label>
+                    <input type="time" id="starton-form" placeholder="Enter start time" required>
+                </div>
+                <div class="form-group">
+                    <label for="endson-form">End time</label>
+                    <input type="time" id="endson-form" placeholder="Enter end time" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="discription-form">Discription</label>
+                <!-- <input type="textfield" id="discription-form" placeholder="Enter text here..."> -->
+                <textarea name="discription-form" id="discription-form" cols="20" rows="4"
+                          placeholder="Enter text here..."></textarea>
+            </div>
+            <div class="form-group">
+                <!-- <label for="participant-form">Add Participants</label>
+                <input type="text" id="participant-form" placeholder="Enter Name "> -->
+                <!-- <div id="inputParticipant">
+                  <ul id="participant-form">
+
+                  </ul>
+                </div> -->
+                <label for="participant-form">Add Participants</label>
+                <!-- <input type="text" id="participant-form" placeholder="Enter name"> -->
+                <div id="inputParticipant">
+                    <ul id="participant-form-list"></ul>
+                </div>
 
 
-
-
-          <a href="popup.html" style="position:absolute; bottom:10px; left:100%"><i
-              class="fa-solid fa-address-book"></i></a>
-        </div>
-        <div class="button">
-          <button type="submit">Create</button>
-          <!-- <button type="submit">Discard</button> -->
-          <button type="cancel" onclick=" javascript:window.location='daskbord.html'">Cancel</button>
-        </div>
-      </form>
+                <a href="popup.html" style="position:absolute; bottom:10px; left:100%"><i
+                        class="fa-solid fa-address-book"></i></a>
+            </div>
+            <div class="button">
+                <button type="submit">Create</button>
+                <!-- <button type="submit">Discard</button> -->
+                <button type="cancel" onclick=" javascript:window.location='daskbord.html'">Cancel</button>
+            </div>
+        </form>
 
     </div>
-  </div>
+</div>
 
-  <script>
+<script>
     // Retrieve the form element from the DOM
     const form = document.getElementById('appoinment-form');
 
     // Add event listener for form submission
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent the form from submitting
+        e.preventDefault(); // Prevent the form from submitting
 
-      // Retrieve the values from the form fields
-      const title = document.getElementById('title-form').value;
-      const startDate = document.getElementById('startDate-form').value;
-      const startTime = document.getElementById('starton-form').value;
-      const endTime = document.getElementById('endson-form').value;
-      const description = document.getElementById('discription-form').value;
-      const participant = document.getElementById('participant-form').value;
+        // Retrieve the values from the form fields
+        const title = document.getElementById('title-form').value;
+        const startDate = document.getElementById('startDate-form').value;
+        const startTime = document.getElementById('starton-form').value;
+        const endTime = document.getElementById('endson-form').value;
+        const description = document.getElementById('discription-form').value;
+        const participantList = document.getElementById('participant-form-list');
 
-      // Create an object to store the form data
-      const appointment = {
-        title,
-        startDate,
-        startTime,
-        endTime,
-        description,
-        participant
-      };
+        // Get the participant names from the list
+        const participants = [];
+        for (let i = 0; i < participantList.children.length; i++) {
+            participants.push(participantList.children[i].textContent);
+        }
 
-      // Check if local storage is supported by the browser
-      if (typeof Storage !== 'undefined') {
-        // Retrieve existing appointments from local storage or initialize an empty array
-        let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+        // Create an object to store the form data
+        const appointment = {
+            title,
+            startDate,
+            startTime,
+            endTime,
+            description,
+            participants
+        };
 
-        // Add the new appointment to the array
-        appointments.push(appointment);
+        // Check if local storage is supported by the browser
+        if (typeof Storage !== 'undefined') {
+            // Retrieve existing appointments from local storage or initialize an empty array
+            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
 
-        // Store the updated appointments array in local storage
-        localStorage.setItem('appointments', JSON.stringify(appointments));
+            // Add the new appointment to the array
+            appointments.push(appointment);
 
-        // Clear the form fields
-        form.reset();
+            // Store the updated appointments array in local storage
+            localStorage.setItem('appointments', JSON.stringify(appointments));
 
-        // Optionally, display a success message or perform other actions
-        alert('Appointment created successfully!');
-        window.location.replace("home.html");
-      } else {
-        // Local storage is not supported
-        alert('Sorry, your browser does not support local storage.');
-      }
+            // Clear the form fields
+            form.reset();
+
+            // Optionally, display a success message or perform other actions
+            alert('Appointment created successfully!');
+
+            let sendMailTo = [];
+            let startingTime = '';
+            let startDate = '';
+            let description = [];
+            let title = [];
+            let sentitle = ',';
+            let set = ',';
+            let SetDescription = ',';
+            const sendMailToEmails = ', ';
+            for (let i = 0; i <= appointments.length; i++) {
+                for (let j = 0; j <= participants.length; j++) {
+                    sendMailTo.push(participants[i])
+                }
+                //pushing and updating the values
+                // console.log(appointments[i].description)
+                // description.push(appointments[i].description)
+                // title.push(appointments[i].title)
+                // startingTime = appointments[i].startTime;
+                // startDate = appointments[i].startDate;
+
+
+            }
+            // console.log(startingTime)
+
+
+            // console.log(appointments[0].description)
+
+            const resultMail = sendMailTo.join(sendMailToEmails);
+            console.log(resultMail)
+            const resultTitle = title.join(sentitle)
+            let resultDescription = description.join(SetDescription)
+            resultDescription = resultDescription +" Meeting starting time is"+startingTime +" meeting starting Date"+startDate
+
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "vaibhavkumawat009@gmail.com",
+                Password: "2D399CD9A5ACEA3C425D4AFB1F211F174E2D",
+                To: resultMail,
+                From: "vaibhavkumawat009@gmail.com",
+                Subject: "title",
+                Body: "body"
+            }).then(
+                message => alert(message)
+            );
+        } else {
+            // Local storage is not supported
+            alert('Sorry, your browser does not support local storage.');
+        }
     });
 
-    // Get the participant name from local storage
-//var participant_Name = JSON.parse(localStorage.getItem("selectedParticipants"));
-// Check if participant name exists in local storage
-//let participant_Name_list=' ';
-//for(let i=0; i<participant_Name.length; i++){
-  //console.log(participant_Name[i].name);
-  //participant_Name_list= `${participant_Name_list} \n ${participant_Name[i].name}`;
-  
-//}
-//console.log(participant_Name_list)
+
+    // Retrieve the participant names from local storage
+    var participantNames = JSON.parse(localStorage.getItem("selectedParticipants"));
+
+    // Check if participant names exist in local storage
+    if (participantNames) {
+        // Get the participant list element
+        var participantList = document.getElementById("participant-form-list");
+
+        // Clear the existing list
+        participantList.innerHTML = '';
+
+        // Iterate over participant names and create list items
+        for (var i = 0; i < participantNames.length; i++) {
+            var participant = participantNames[i].email;
+
+            // Create a list item element
+            var listItem = document.createElement("li");
+
+            // Set the text content to the participant name
+            listItem.textContent = participant;
+
+            // Append the list item to the participant list
+            participantList.appendChild(listItem);
+        }
+    }
 
 
-//if (participant_Name) {
-  // Store the participant name in the input field
-  //var participantForm = document.getElementById("participant-form");
-  //participantForm.value = participant_Name_list
-//}
-
-
-
-
-
-
-// Retrieve the participant names from local storage
-var participantNames = JSON.parse(localStorage.getItem("selectedParticipants"));
-
-// Check if participant names exist in local storage
-if (participantNames) {
-  // Get the participant list element
-  var participantList = document.getElementById("participant-form-list");
-
-  // Clear the existing list
-  participantList.innerHTML = '';
-
-  // Iterate over participant names and create list items
-  for (var i = 0; i < participantNames.length; i++) {
-    var participant = participantNames[i].name;
-
-    // Create a list item element
-    var listItem = document.createElement("li");
-
-    // Set the text content to the participant name
-    listItem.textContent = participant;
-
-    // Append the list item to the participant list
-    participantList.appendChild(listItem);
-  }
-}
-
-
-  </script>
+</script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 
 </html>
