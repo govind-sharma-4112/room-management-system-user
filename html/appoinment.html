@@ -196,39 +196,36 @@
             // Optionally, display a success message or perform other actions
             alert('Appointment created successfully!');
 
+            //mail featuring
             let sendMailTo = [];
-            let startingTime = '';
-            let startDate = '';
-            let description = [];
+            const sendMailToEmails = ', ';
             let title = [];
             let sentitle = ',';
-            let set = ',';
+            let description = [];
             let SetDescription = ',';
-            const sendMailToEmails = ', ';
+            let startingTime = '';
+            let startDate = '';
             for (let i = 0; i <= appointments.length; i++) {
                 for (let j = 0; j <= participants.length; j++) {
                     sendMailTo.push(participants[i])
                 }
-                //pushing and updating the values
-                // console.log(appointments[i].description)
-                // description.push(appointments[i].description)
-                // title.push(appointments[i].title)
-                // startingTime = appointments[i].startTime;
-                // startDate = appointments[i].startDate;
-
-
             }
-            // console.log(startingTime)
-
-
-            // console.log(appointments[0].description)
+            appointments.map((i) => {
+                startingTime = i.startTime
+                startDate = i.startDate
+                title.push(i.title)
+                description.push(i.description)
+            })
 
             const resultMail = sendMailTo.join(sendMailToEmails);
-            console.log(resultMail)
             const resultTitle = title.join(sentitle)
-            let resultDescription = description.join(SetDescription)
-            resultDescription = resultDescription +" Meeting starting time is"+startingTime +" meeting starting Date"+startDate
 
+            let resultDescription = description.join(SetDescription)
+            resultDescription = resultDescription + " Meeting starting time is " + startingTime + " meeting starting Date " + startDate
+
+            console.log(resultMail)
+            console.log(resultTitle)
+            console.log(resultDescription)
 
             Email.send({
                 Host: "smtp.elasticemail.com",
@@ -236,8 +233,8 @@
                 Password: "2D399CD9A5ACEA3C425D4AFB1F211F174E2D",
                 To: resultMail,
                 From: "vaibhavkumawat009@gmail.com",
-                Subject: "title",
-                Body: "body"
+                Subject: resultTitle,
+                Body: resultDescription
             }).then(
                 message => alert(message)
             );
