@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Participants List</title>
+  <style>
+    /* CSS styles for the participants list page */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #c9eeff;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      
+    }
+    
+    .card {
+      background-color: #ffffff;
+      width: 350px;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(167, 124, 124, 0.1);
+    }
+
+    #pageHeading{
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333333;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 300px;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      outline: none;
+    }
+
+    .participant-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .participant-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .participant-name {
+      font-size: 18px;
+      margin-left: 10px;
+    }
+
+    .checkbox {
+      margin-right: 10px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+    }
+    .popup h2 {
+      margin-top: 0;
+    }
+
+    .popup p {
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #1bb7ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #62CDFF;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1 id="pageHeading">Participants List</h1>
+      <div class="search-bar">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search participants" />
+      </div>
+      <ul id="participantList" class="participant-list">
+      </ul>
+      <button type="submit">Select</button>
+
+      <div id="popup" class="popup">
+        <h2>Participant Details</h2>
+        <p><strong>Name:</strong> <span id="participantName"></span></p>
+        <p><strong>Email:</strong> <span id="participantEmail"></span></p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+      </div>
+      <div id="overlay" class="overlay"></div>
+    </div>
+  </div>
+  <script>
+    // JavaScript code for the participants list page
+    const participantList = document.getElementById('participantList');
+    const searchInput = document.getElementById('searchInput');
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+    let participants = [
+      {
+        name: "Aman",
+        email: "aman.patel@averybit.in"
+      },
+      {
+        name: "Sourab",
+        email: "sourabh.sharma@averybit.in"
+      },
+      {
+        name: "Govind ",
+        email: "govind.sharma@averybit.in"
+      },
+      {
+        name: "Mohit",
+        email: "mohit.birla@averybit.in"
+      },
+      {
+        name: "Vaibhav",
+        email: "vaibhav.kumawat@averybit.in"
+      }
+    ];
+
+    // Display participants
+    function displayParticipants(participants) {
+      participantList.innerHTML = '';
+      participants.forEach(participant => {
+        const participantCard = document.createElement('li');
+        participantCard.className = 'participant-card';
+        participantCard.innerHTML = `
+          <input type="checkbox" class="checkbox">
+          <span class="participant-name">${participant.name}</span>
+        `;
+        participantCard.addEventListener('dblclick', () => showPopup(participant));
+        participantList.appendChild(participantCard);
+      });
+    }
+
+    // Show pop-up with participant details
+    function showPopup(participant) {
+      document.getElementById('participantName').textContent = participant.name;
+      document.getElementById('participantEmail').textContent = participant.email;
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+
+    // Close pop-up
+    function closePopup() {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+
+    // Search participants
+    function searchParticipants() {
+      const searchText = searchInput.value.trim();
+      const filteredParticipants = participants.filter(participant =>
+        participant.name.toLowerCase().includes(searchText)
+      );
+      displayParticipants(filteredParticipants);
+    }
+
+    // Event listener for search input
+    searchInput.addEventListener('input', searchParticipants);
+
+    // Initial display of participants
+    displayParticipants(participants);
+
+
+
+
+    // Retrieve the selected participants from local storage or initialize an empty array
+let selectedParticipants = JSON.parse(localStorage.getItem('selectedParticipants')) || [];
+
+// Function to handle the select button click
+function handleSelectButton() {
+  console.log('handle select button')
+  // Get the checkboxes for all participants
+  const checkboxes = document.getElementsByClassName('checkbox');
+  console.log('checkoboded', checkboxes)
+  // Loop through the checkboxes and add the selected participants to the array
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      const participantName = participants[i].name;
+      // console.log(' participant name', participantName)
+      const participantEmail = participants[i].email;
+      // console.log(' participants data', participants)
+      const selectedParticipant = { name: participantName, email: participantEmail };
+      selectedParticipants.push(selectedParticipant);
+    }
+  }
+
+
+
+  // Store the updated selected participants array in local storage
+  console.log("selected participent", selectedParticipants);
+  localStorage.setItem('selectedParticipants', JSON.stringify(selectedParticipants));
+
+  // Redirect the user to the second page or perform any other desired action
+ // window.location.replace('appoinment.html');
+
+let sendMailTo  = [];
+const sendMailToEmails = ', ';
+for(let i=0;i<selectedParticipants.length;i++){
+  console.log(selectedParticipants[i].email)
+  sendMailTo.push(selectedParticipants[i].email)
+}
+
+const result = sendMailTo.join(sendMailToEmails);
+
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "vaibhavkumawat009@gmail.com",
+    Password : "2D399CD9A5ACEA3C425D4AFB1F211F174E2D",
+    To : result,
+    From : "vaibhavkumawat009@gmail.com",
+    Subject : "Greeting from aveybit",
+    Body : "this is the email regarding the scheduled meeting, you are invited for the meeting "
+  }).then(
+          message => alert(message)
+  );
+
+}
+
+
+// Event listener for the select button
+const selectButton = document.querySelector('button[type="submit"]');
+selectButton.addEventListener('click', handleSelectButton);
+
+  </script>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+</body>
+
+</html>
+
