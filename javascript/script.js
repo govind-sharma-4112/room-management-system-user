@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Redirect to another page or perform other actions
         //   document.open('Profile.html');
         //   window.open('Profile.html');
-            window.location.replace("/room-management-system-user/html/daskbord.html");
+            window.location.replace("/html/daskbord.html");
 
         } else {
           // Invalid credentials
