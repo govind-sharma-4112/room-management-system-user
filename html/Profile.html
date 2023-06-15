@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card</title>
+  <link rel="stylesheet" type="text/css" href="profile.css">
+</head>
+<body>
+  <div class="container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <img src="./../responsive login page/Aman_Profile.png" alt="Profile Picture" >
+        <!-- <input type="text" id="edit-image" placeholder="Profile Image URL"> -->
+
+        
+        <h2 id="name">Aman Patel</h2>
+        <p id="title">Web Developer</p>
+      </div>
+      <div class="profile-details">
+        <ul>
+          <li><strong>Email:</strong> <span id="email">aman@example.com</span></li>
+          <li><strong>Location:</strong> <span id="location">Indore, India</span></li>
+          <li><strong>Skills:</strong> <span id="skills">HTML, CSS, JavaScript</span></li>
+        </ul>
+      </div>
+      <div class="profile-footer">
+        <a href="#" id="edit-btn" class="button">Edit Profile</a>
+        <div class="edit-form hidden" id="edit-form">
+          <input type="text" id="edit-name" placeholder="Name">
+          <input type="text" id="edit-title" placeholder="Title">
+          <input type="text" id="edit-email" placeholder="Email">
+          <input type="text" id="edit-location" placeholder="Location">
+          <input type="text" id="edit-skills" placeholder="Skills">
+          <button id="save-btn">Save</button>
+          <button id="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="profile.js"></script>
+</body>
+</html>
