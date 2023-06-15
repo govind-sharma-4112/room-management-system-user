@@ -3,32 +3,14 @@
     {
         "sno":"1",
         "empid":"1",
-        "employeename":"vaibhav",
+        "employeename":"Vaibhav",
         "slot":"2:00PM"
     },
     {
 
-        "sno":"2",
-        "empid":"3",
-        "employeename":"vani",
-        "slot":"3:00PM"
-
-    },
-    {
-
-        "sno":"3",
-        "empid":"5",
-        "employeename":"naman",
-        "slot":"4:00PM"
-
-    },
-
-
-        {
-
-            "sno":"4",
-            "empid":"7",
-            "employeename":"shiv",
+            "sno":"2",
+            "empid":"1",
+            "employeename":"Vaibhav",
             "slot":"6:00PM"
 
         },
