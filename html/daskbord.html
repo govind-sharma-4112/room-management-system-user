@@ -292,61 +292,88 @@
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var calendar = $("#calendar").fullCalendar({
+    
+    axios.get("http://localhost:8080/meeting/all")
+        .then(function (response) {
+            var events = response.data.data;
+            localStorage.setItem("events", JSON.stringify(events));
+
+            console.log(events);
+            // calendar.fullCalendar("renderEvents", events, true);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+  //       
+    // var events;
+    var actualEvents = [];
+    const getEvents = () => {
+
+      let e = JSON.parse(localStorage.getItem("events"))
+      console.log(e)
+      actualEvents = e.map((item)=>{
+        return {title: item.meeting_name, start: item.start_time, end: item.end_time}
+        
+      })
+      console.log(actualEvents);
+    }
+    getEvents()
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var calendar = $("#calendar").fullCalendar({
         header: {
-          left: "prev,next today",
-          center: "title",
-          right: "month,agendaWeek,agendaDay",
+            left: "prev,next today",
+            center: "title",
+            right: "month,agendaWeek,agendaDay",
         },
         editable: true,
-        events: [
-          {
-            title: "Meeting",
-            start: new Date("2023-06-15T09:00:00"),
-            end: new Date("2023-06-15T10:30:00"),
-            Description: "Hello",
-          },
-        ],
+        events: actualEvents, // Initialize events as an empty array
+  //       events:[
+  // { title: 'Meeting', start: new Date('2023-06-15T09:00:00'), end: new Date('2023-06-15T10:30:00') },
+  //     ],
+
         eventClick: function (event) {
-          // Handle event click here
-          var startTime = moment(event.start).format("YYYY-MM-DD HH:mm:ss");
-          var endTime = moment(event.end).format("YYYY-MM-DD HH:mm:ss");
-          var eventDetails =
-            "Title: " +
-            event.title +
-            "\n" +
-            "Start Time: " +
-            startTime +
-            "\n" +
-            "End Time: " +
-            endTime +
-            "\n" +
-            "Description: " +
-            event.Description;
+            // Handle event click here
+            var startTime = moment(event.start).format("YYYY-MM-DD HH:mm:ss");
+            var endTime = moment(event.end).format("YYYY-MM-DD HH:mm:ss");
+            var eventDetails =
+                "Title: " +
+                event.title +
+                "\n" +
+                "Start Time: " +
+                startTime +
+                "\n" +
+                "End Time: " +
+                endTime +
+                "\n" 
 
-          alert(eventDetails);
+            alert(eventDetails);
 
-          if (confirm("Do you want to delete this event?")) {
-            $("#calendar").fullCalendar("removeEvents", event._id);
-            alert("Event deleted successfully!");
-          }
+            if (confirm("Do you want to delete this event?")) {
+                $("#calendar").fullCalendar("removeEvents", event._id);
+                alert("Event deleted successfully!");
+            }
         },
 
         eventDrop: function (event, delta, revertFunc) {
-          // Handle event drag and drop here
-          if (!confirm("Are you sure about this change?")) {
-            revertFunc();
-          }
+            // Handle event drag and drop here
+            if (!confirm("Are you sure about this change?")) {
+                revertFunc();
+            }
         },
         eventResize: function (event, delta, revertFunc) {
-          // Handle event resize here
-          if (!confirm("Are you sure about this change?")) {
-            revertFunc();
-          }
+            // Handle event resize here
+            if (!confirm("Are you sure about this change?")) {
+                revertFunc();
+            }
         },
-      });
     });
+
+    // Fetch events from API and update the calendar
+    
+});
+
+
   </script>
   <script>
     // function mdisplayProfile(){
