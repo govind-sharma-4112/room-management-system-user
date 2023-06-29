@@ -116,12 +116,16 @@ for (let i = 1; i <= lastDateofMonth; i++) { let isToday=i===date.getDate() && c
             
               let data = res.data.data;
               console.log(data)
+              // let dataString = JSON.stringify(data);
+
+              // Store the data in local storage
+              localStorage.setItem('myData', data);
               data.map((i) => {  
               
                 var title = i.meeting_name;
                 var start = i.start_time;
                 var end = i.end_time;
-                var temp = [title,start,end]
+               
 
               
                 console.log(title)

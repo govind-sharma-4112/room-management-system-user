@@ -140,6 +140,8 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
 <script>
+let storedData = localStorage.getItem('myData');
+console.log(storedData)
 
     document.addEventListener('DOMContentLoaded', function() {
       var meetings = title
@@ -151,9 +153,10 @@
     },
     editable: true,
     events:[
+      
     
          {
-            title:title,
+            title:storedData[0].meeting_name,
             start: new Date("2023-06-15T09:00:00"),
             end: new Date("2023-06-15T10:30:00"),
             Description: "Hello",
@@ -183,6 +186,7 @@
   });
 });
 
+console.log("hey there")
 </script>
 <script>
    
