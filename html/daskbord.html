@@ -140,7 +140,9 @@
 <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
 <script>
+
     document.addEventListener('DOMContentLoaded', function() {
+      var meetings = title
     var calendar = $('#calendar').fullCalendar({
     header: {
       left: 'prev,next today',
@@ -149,12 +151,15 @@
     },
     editable: true,
     events:[
-  { title: 'Meeting', start: new Date('2023-06-15T09:00:00'), end: new Date('2023-06-15T10:30:00') },
-  { title: 'Lunch Break', start: new Date('2023-06-15T12:00:00'), end: new Date('2023-06-15T13:00:00') },
-  { title: 'Presentation', start: new Date('2023-06-15T14:00:00'), end: new Date('2023-06-15T15:30:00') },
-  { title: 'Presentation', start: new Date('2023-06-16T14:00:00'), end: new Date('2023-06-16T15:30:00') },
-  { title: 'Presentation', start: new Date('2023-06-17T14:00:00'), end: new Date('2023-06-17T15:30:00') },
-  { title: 'Presentation', start: new Date('2023-06-17T14:00:00'), end: new Date('2023-06-17T15:30:00') }
+    
+         {
+            title:title,
+            start: new Date("2023-06-15T09:00:00"),
+            end: new Date("2023-06-15T10:30:00"),
+            Description: "Hello",
+          },
+    
+      
 
 ],
     eventClick: function(event) {
@@ -217,5 +222,6 @@
       //         document.getElementsByClassName("mmcard").style.display ='none';
       //       });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
 <script src="/javascript/daskbord.js"></script>
 </html>

@@ -106,3 +106,31 @@ for (let i = 1; i <= lastDateofMonth; i++) { let isToday=i===date.getDate() && c
               });
             });
            
+
+
+
+           var getMeeting = document.getElementById('values')
+
+            async function getMeetings() {
+              let res = await axios.get("http://localhost:8080/meeting/all");
+            
+              let data = res.data.data;
+              console.log(data)
+              data.map((i) => {  
+              
+                var title = i.meeting_name;
+                var start = i.start_time;
+                var end = i.end_time;
+                var temp = [title,start,end]
+
+              
+                console.log(title)
+                console.log(start)
+                console.log(end)
+                getMeeting.innerText +=title
+              });
+            }
+            getMeetings();
+            
+            
+           
