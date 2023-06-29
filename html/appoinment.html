@@ -87,194 +87,198 @@
         button:hover {
             background-color: #62CDFF;
         }
+
+        form {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
 <body>
-<div class="container">
-    <div class="card">
-        <h1>Add Appoinment</h1>
-        <form id="appoinment-form" action="#">
-            <div class="form-group">
-                <label for="title-form">Title</label>
-                <input type="text" id="title-form" placeholder="Enter your title" required>
-            </div>
-            <div class="form-group">
-                <label for="startDate-form">Date</label>
-                <input type="date" id="startDate-form" placeholder="Enter start time" required>
-            </div>
-            <div class="appointment-time">
+    <div class="container">
+        <div class="card">
+            <h1>Add Appoinment</h1>
+            <form  id="appoinment-form" action="#" >
                 <div class="form-group">
-                    <label for="starton-form">Start time</label>
-                    <input type="time" id="starton-form" placeholder="Enter start time" required>
+                    <label for="title-form">Title</label>
+                    <input type="text" id="title-form" placeholder="Enter your title" value="" required>
                 </div>
                 <div class="form-group">
-                    <label for="endson-form">End time</label>
-                    <input type="time" id="endson-form" placeholder="Enter end time" required>
+                    <label for="startDate-form">Date</label>
+                    <input type="date" id="startDate-form" placeholder="Enter start time" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="discription-form">Discription</label>
-                <!-- <input type="textfield" id="discription-form" placeholder="Enter text here..."> -->
-                <textarea name="discription-form" id="discription-form" cols="20" rows="4"
-                          placeholder="Enter text here..."></textarea>
-            </div>
-            <div class="form-group">
-                <!-- <label for="participant-form">Add Participants</label>
-                <input type="text" id="participant-form" placeholder="Enter Name "> -->
-                <!-- <div id="inputParticipant">
-                  <ul id="participant-form">
+                <div class="appointment-time">
+                    <div class="form-group">
+                        <label for="starton-form">Start time</label>
+                        <input type="time" id="starton-form" placeholder="Enter start time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endson-form">End time</label>
+                        <input type="time" id="endson-form" placeholder="Enter end time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="discription-form">Discription</label>
+                    <!-- <input type="textfield" id="discription-form" placeholder="Enter text here..."> -->
+                    <textarea name="discription-form" id="discription-form" cols="20" rows="4"
+                        placeholder="Enter text here..."></textarea>
+                </div>
+                <form class="form-group">
+                    <span style="padding-bottom: 50px;">Select room <br></span>
+                    <select name="chapter" id="chapter">
+                        <option value="room" selected="selected"></option>
 
-                  </ul>
-                </div> -->
-                <label for="participant-form">Add Participants</label>
-                <!-- <input type="text" id="participant-form" placeholder="Enter name"> -->
-                <div id="inputParticipant">
-                    <ul id="participant-form-list"></ul>
+                    </select>
+                </form>
+
+                <div id="result" value="hey">
+
                 </div>
 
+                <div class="button"  onclick="meetingadded()">
+                    <button type="submit"  >Create</button>
+                    <!-- <button type="submit">Discard</button> -->
+                    <button type="cancel" onclick=" javascript:window.location='./daskbord.html'">Cancel</button>
+                </div>
+                
+            </form>
 
-                <a href="/html/popup.html" style="position:absolute; bottom:10px; left:100%"><i
-                        class="fa-solid fa-address-book"></i></a>
-            </div>
-            <div class="button">
-                <button type="submit">Create</button>
-                <!-- <button type="submit">Discard</button> -->
-                <button type="cancel" onclick=" javascript:window.location='daskbord.html'">Cancel</button>
-            </div>
-        </form>
-
+        </div>
     </div>
-</div>
 
-<script>
-    // Retrieve the form element from the DOM
-    const form = document.getElementById('appoinment-form');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js">
+        // Retrieve the form element from the DOM
+        const form = document.getElementById('appoinment-form');
 
-    // Add event listener for form submission
-    form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent the form from submitting
+        // Add event listener for form submission
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the form from submitting
 
-        // Retrieve the values from the form fields
-        const title = document.getElementById('title-form').value;
-        const startDate = document.getElementById('startDate-form').value;
-        const startTime = document.getElementById('starton-form').value;
-        const endTime = document.getElementById('endson-form').value;
-        const description = document.getElementById('discription-form').value;
-        const participantList = document.getElementById('participant-form-list');
+            // Retrieve the values from the form fields
+            const title = document.getElementById('title-form').value;
+            const startDate = document.getElementById('startDate-form').value;
+            const startTime = document.getElementById('starton-form').value;
+            const endTime = document.getElementById('endson-form').value;
+            const description = document.getElementById('discription-form').value;
+            const participantList = document.getElementById('participant-form-list');
 
-        // Get the participant names from the list
-        const participants = [];
-        for (let i = 0; i < participantList.children.length; i++) {
-            participants.push(participantList.children[i].textContent);
-        }
-
-        // Create an object to store the form data
-        const appointment = {
-            title,
-            startDate,
-            startTime,
-            endTime,
-            description,
-            participants
-        };
-
-        // Check if local storage is supported by the browser
-        if (typeof Storage !== 'undefined') {
-            // Retrieve existing appointments from local storage or initialize an empty array
-            let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
-
-            // Add the new appointment to the array
-            appointments.push(appointment);
-
-            // Store the updated appointments array in local storage
-            localStorage.setItem('appointments', JSON.stringify(appointments));
-
-            // Clear the form fields
-            form.reset();
-
-            // Optionally, display a success message or perform other actions
-            alert('Appointment created successfully!');
-            window.location.replace('/html/daskbord.html')
-
-            //mail featuring
-            let sendMailTo = [];
-            const sendMailToEmails = ', ';
-            let title = [];
-            let sentitle = ',';
-            let description = [];
-            let SetDescription = ',';
-            let startingTime = '';
-            let startDate = '';
-            for (let i = 0; i <= appointments.length; i++) {
-                for (let j = 0; j <= participants.length; j++) {
-                    sendMailTo.push(participants[i])
-                }
+            // Get the participant names from the list
+            const participants = [];
+            for (let i = 0; i < participantList.children.length; i++) {
+                participants.push(participantList.children[i].textContent);
             }
-            appointments.map((i) => {
-                startingTime = i.startTime
-                startDate = i.startDate
-                title.push(i.title)
-                description.push(i.description)
-            })
 
-            const resultMail = sendMailTo.join(sendMailToEmails);
-            const resultTitle = title.join(sentitle)
+            // Create an object to store the form data
+            const appointment = {
+                title,
+                startDate,
+                startTime,
+                endTime,
+                description,
+                participants
+            };
 
-            let resultDescription = description.join(SetDescription)
-            resultDescription = resultDescription + " Meeting starting time is " + startingTime + " meeting starting Date " + startDate
+            // Check if local storage is supported by the browser
+            if (typeof Storage !== 'undefined') {
+                // Retrieve existing appointments from local storage or initialize an empty array
+                let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
 
-            console.log(resultMail)
-            console.log(resultTitle)
-            console.log(resultDescription)
+                // Add the new appointment to the array
+                appointments.push(appointment);
 
-            Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: "vaibhavkumawat009@gmail.com",
-                Password: "2D399CD9A5ACEA3C425D4AFB1F211F174E2D",
-                To: resultMail,
-                From: "vaibhavkumawat009@gmail.com",
-                Subject: resultTitle,
-                Body: resultDescription
-            }).then(
-                message => alert(message)
-            );
-        } else {
-            // Local storage is not supported
-            alert('Sorry, your browser does not support local storage.');
+                // Store the updated appointments array in local storage
+                localStorage.setItem('appointments', JSON.stringify(appointments));
+
+                // Clear the form fields
+                form.reset();
+
+                // Optionally, display a success message or perform other actions
+                alert('Appointment created successfully!');
+                window.location.replace('/html/daskbord.html')
+
+                //mail featuring
+                let sendMailTo = [];
+                const sendMailToEmails = ', ';
+                let title = [];
+                let sentitle = ',';
+                let description = [];
+                let SetDescription = ',';
+                let startingTime = '';
+                let startDate = '';
+                for (let i = 0; i <= appointments.length; i++) {
+                    for (let j = 0; j <= participants.length; j++) {
+                        sendMailTo.push(participants[i])
+                    }
+                }
+                appointments.map((i) => {
+                    startingTime = i.startTime
+                    startDate = i.startDate
+                    title.push(i.title)
+                    description.push(i.description)
+                })
+
+                const resultMail = sendMailTo.join(sendMailToEmails);
+                const resultTitle = title.join(sentitle)
+
+                let resultDescription = description.join(SetDescription)
+                resultDescription = resultDescription + " Meeting starting time is " + startingTime + " meeting starting Date " + startDate
+
+                console.log(resultMail)
+                console.log(resultTitle)
+                console.log(resultDescription)
+
+                Email.send({
+                    Host: "smtp.elasticemail.com",
+                    Username: "vaibhavkumawat009@gmail.com",
+                    Password: "2D399CD9A5ACEA3C425D4AFB1F211F174E2D",
+                    To: resultMail,
+                    From: "vaibhavkumawat009@gmail.com",
+                    Subject: resultTitle,
+                    Body: resultDescription
+                }).then(
+                    message => alert(message)
+                );
+            } else {
+                // Local storage is not supported
+                alert('Sorry, your browser does not support local storage.');
+            }
+        });
+
+
+        // Retrieve the participant names from local storage
+        var participantNames = JSON.parse(localStorage.getItem("selectedParticipants"));
+
+        // Check if participant names exist in local storage
+        if (participantNames) {
+            // Get the participant list element
+            var participantList = document.getElementById("participant-form-list");
+
+            // Clear the existing list
+            participantList.innerHTML = '';
+
+            // Iterate over participant names and create list items
+            for (var i = 0; i < participantNames.length; i++) {
+                var participant = participantNames[i].email;
+
+                // Create a list item element
+                var listItem = document.createElement("li");
+
+                // Set the text content to the participant name
+                listItem.textContent = participant;
+
+                // Append the list item to the participant list
+                participantList.appendChild(listItem);
+            }
         }
-    });
 
 
-    // Retrieve the participant names from local storage
-    var participantNames = JSON.parse(localStorage.getItem("selectedParticipants"));
 
-    // Check if participant names exist in local storage
-    if (participantNames) {
-        // Get the participant list element
-        var participantList = document.getElementById("participant-form-list");
-
-        // Clear the existing list
-        participantList.innerHTML = '';
-
-        // Iterate over participant names and create list items
-        for (var i = 0; i < participantNames.length; i++) {
-            var participant = participantNames[i].email;
-
-            // Create a list item element
-            var listItem = document.createElement("li");
-
-            // Set the text content to the participant name
-            listItem.textContent = participant;
-
-            // Append the list item to the participant list
-            participantList.appendChild(listItem);
-        }
-    }
-
-
-</script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="../javascript/appointment.js" defer></script>
 </body>
 
 </html>
