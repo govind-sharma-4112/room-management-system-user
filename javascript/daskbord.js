@@ -127,7 +127,7 @@ for (let i = 1; i <= lastDateofMonth; i++) { let isToday=i===date.getDate() && c
                 console.log(title)
                 console.log(start)
                 console.log(end)
-                getMeeting.innerText +=title
+                // getMeeting.innerText +=title
               });
             }
             getMeetings();

@@ -20,7 +20,8 @@ doGetRequest();
 
 async function meetingadded() {
   let final = [];
-  let meeting_name = document.getElementById("title-form").value;
+  let meeting_name =document.getElementById("title-form").value;
+  console.log(typeof meeting_name)
   let meeting_date = document.getElementById("startDate-form").value;
   
   let start_time = document.getElementById("starton-form").value;
@@ -32,7 +33,10 @@ async function meetingadded() {
   let is_active = 1;
   let fk_room_id = 1;
   let fk_emp_id = 1;
-console.log(meeting_date)
+
+
+  console.log(meeting_date)
+  
   // let room = docuement.getElementById('room-name').value
 
   try {
