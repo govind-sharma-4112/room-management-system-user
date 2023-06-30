@@ -46,4 +46,6 @@ async function meetingadded() {
   } catch (err) {
     console.log(err);
   }
+  alert('Appointment created successfully!');
+  window.location.replace('/html/daskbord.html')
 }

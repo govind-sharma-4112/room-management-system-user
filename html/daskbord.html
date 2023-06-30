@@ -36,6 +36,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/daskbord.css" />
   </head>
   <body>
@@ -118,7 +124,7 @@
             style="position: absolute; top: 15px; left: 90%"
             id="closeditprofile"
           ></i>
-        
+
           <div class="profile-header">
             <img src="/images/image (1).jpg" alt="Profile Picture" />
             <h2 id="name"></h2>
@@ -126,9 +132,7 @@
           </div>
           <div class="profile-details">
             <ul>
-              <li>
-                <strong>Email:</strong> <span id="email"></span>
-              </li>
+              <li><strong>Email:</strong> <span id="email"></span></li>
               <li>
                 <strong>password:</strong>
                 <span id="location"></span>
@@ -177,9 +181,6 @@
             </div>
           </div>
         </div>
-        
-
-
       </div>
     </div>
 
@@ -223,6 +224,262 @@
             margin: 1em;
           "
         ></div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn"
+      id="modalButton"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      btn
+    </button>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Event Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Event details will be inserted dynamically here -->
+            <form id="updateForm">
+              <div class="mb-3">
+                <label for="meetingName" class="form-label">Meeting Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="meetingName"
+                  name="meeting_name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="startTime"
+                  name="start_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="endTime"
+                  name="end_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingDate" class="form-label">Meeting Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="meetingDate"
+                  name="meeting_date"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingStatus" class="form-label"
+                  >Meeting Status</label
+                >
+                <select
+                  class="form-select"
+                  id="meetingStatus"
+                  name="meeting_status"
+                  required
+                >
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="employeeId" class="form-label">Employee ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeId"
+                  name="fk_emp_id"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="roomId" class="form-label">Room ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="roomId"
+                  name="fk_room_id"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="deleteButton">
+              Delete
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="updateButton"
+              data-bs-toggle="modal"
+              data-bs-target="#updateModal"
+              data-bs-dismiss="modal"
+              onclick="getMeetingDetailForUpdate()"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Update Meeting</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Event details will be inserted dynamically here -->
+            <form id="updateForm">
+              <div class="mb-3">
+                <label for="meetingName" class="form-label">Meeting Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="meetingName"
+                  name="meeting_name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="startTime"
+                  name="start_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="endTime"
+                  name="end_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingDate" class="form-label">Meeting Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="meetingDate"
+                  name="meeting_date"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingStatus" class="form-label"
+                  >Meeting Status</label
+                >
+                <select
+                  class="form-select"
+                  id="meetingStatus"
+                  name="meeting_status"
+                  required
+                >
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="employeeId" class="form-label">Employee ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeId"
+                  name="fk_emp_id"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="roomId" class="form-label">Room ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="roomId"
+                  name="fk_room_id"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              onclick="updateMeeting()"
+            >
+              Update
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -291,91 +548,200 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
   <script>
-    
-    axios.get("http://localhost:8080/meeting/all")
-        .then(function (response) {
-            var events = response.data.data;
-            localStorage.setItem("events", JSON.stringify(events));
+    const updateMeeting = () => {
+      let meeting_name = document.getElementById("meetingName").value;
+      let start_time = document.getElementById("startTime").value;
+      let end_time = document.getElementById("endTime").value;
+      let meeting_date = document.getElementById("meetingDate").value;
+      let meeting_status = document.getElementById("meetingStatus").value;
+      let fk_emp_id = document.getElementById("employeeId").value;
+      let fk_room_id = document.getElementById("roomId").value;
 
-            console.log(events);
-            // calendar.fullCalendar("renderEvents", events, true);
-        })
-        .catch(function (error) {
-            console.error(error);
+      
+      const data = {
+        meeting_name,
+        start_time,
+        end_time,
+        meeting_date,
+        meeting_status,
+        fk_emp_id,
+        fk_room_id,
+        
+        updated_by : fk_emp_id
+      }
+
+      const id = localStorage.getItem("shaktiman");
+
+      axios
+        .put(`http://localhost:8080/meeting/update/${id}`, data)
+        .then(function (response) {
+          console.log(response)
         });
-  //       
+    };
+
+    const getMeetingDetailForUpdate = () => {
+      const id = localStorage.getItem("shaktiman");
+      console.log(id);
+      let meeting;
+      axios
+        .get(`http://localhost:8080/meeting/unique/${id}`)
+        .then(function (response) {
+          meeting = response.data.data[0];
+          // calendar.fullCalendar("renderEvents", events, true);
+          document.getElementById("meetingName").value = meeting.meeting_name;
+          document.getElementById("startTime").value = meeting.start_time;
+          document.getElementById("endTime").value = meeting.end_time;
+          document.getElementById("meetingDate").value = meeting.meeting_date;
+          document.getElementById("meetingStatus").value =meeting.meeting_status;
+          document.getElementById("employeeId").value = meeting.fk_emp_id;
+          document.getElementById("roomId").value = meeting.fk_room_id;
+        });
+    };
+
+    axios
+      .get("http://localhost:8080/meeting/all")
+      .then(function (response) {
+        var events = response.data.data;
+        localStorage.setItem("events", JSON.stringify(events));
+
+        console.log(events);
+        // calendar.fullCalendar("renderEvents", events, true);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    //
     // var events;
     var actualEvents = [];
     const getEvents = () => {
-
-      let e = JSON.parse(localStorage.getItem("events"))
-      console.log(e)
-      actualEvents = e.map((item)=>{
-        let startTimeM = `${item.meeting_date}T${item.start_time}.000Z`
-        let endTimeM = `${item.meeting_date}T${item.end_time}.000Z`
-        return {title: item.meeting_name, start: startTimeM.slice(0, 24), end: endTimeM.slice(0, 24)}
-        
-      })
+      let e = JSON.parse(localStorage.getItem("events"));
+      console.log(e);
+      actualEvents = e.map((item) => {
+        let startTimeM = `${item.meeting_date}T${item.start_time}.000Z`;
+        let endTimeM = `${item.meeting_date}T${item.end_time}.000Z`;
+        return {
+          id: item.meeting_id,
+          title: item.meeting_name,
+          start: startTimeM.slice(0, 24),
+          end: endTimeM.slice(0, 24),
+        };
+      });
       console.log(actualEvents);
-    }
-    getEvents()
+    };
+    getEvents();
 
-  document.addEventListener("DOMContentLoaded", function () {
-    var calendar = $("#calendar").fullCalendar({
+    document.addEventListener("DOMContentLoaded", function () {
+      var calendar = $("#calendar").fullCalendar({
         header: {
-            left: "prev,next today",
-            center: "title",
-            right: "month,agendaWeek,agendaDay",
+          left: "prev,next today",
+          center: "title",
+          right: "month,agendaWeek,agendaDay",
         },
         editable: true,
         events: actualEvents, // Initialize events as an empty array
-  //       events:[
-  // { title: 'Meeting', start: new Date('2023-06-15T09:00:00'), end: new Date('2023-06-15T10:30:00') },
-  //     ],
 
         eventClick: function (event) {
-            // Handle event click here
-            var startTime = moment(event.start).format("YYYY-MM-DD HH:mm:ss");
-            var endTime = moment(event.end).format("YYYY-MM-DD HH:mm:ss");
-            var eventDetails =
-                "Title: " +
-                event.title +
-                "\n" +
-                "Start Time: " +
-                startTime +
-                "\n" +
-                "End Time: " +
-                endTime+
-                "\n" 
+          var startTime = moment(event.start).format("YYYY-MM-DD HH:mm:ss");
+          var endTime = moment(event.end).format("YYYY-MM-DD HH:mm:ss");
+          localStorage.setItem("shaktiman", event.id);
+          var eventDetails =
+            "Meeting ID: " +
+            event.id +
+            "<br>" +
+            "Title: " +
+            event.title +
+            "<br>" +
+            "Start Time: " +
+            startTime +
+            "<br>" +
+            "End Time: " +
+            endTime +
+            "<br>";
 
-            alert(eventDetails);
+          // Set the event details in the modal
+          document.getElementById("modalTitle").innerHTML = "Meeting Details";
+          document.getElementById("modalBody").innerHTML = eventDetails;
+          // Show the modal
+          var modal = new bootstrap.Modal(
+            document.getElementById("exampleModal")
+          );
+          modal.show();
 
-            if (confirm("Do you want to delete this event?")) {
-                $("#calendar").fullCalendar("removeEvents", event._id);
-                alert("Event deleted successfully!");
-            }
+          // Handle delete button click
+          document
+            .getElementById("deleteButton")
+            .addEventListener("click", function () {
+              // Remove the event
+              $("#calendar").fullCalendar("removeEvents", event._id);
+
+              // Hide the modal
+              modal.hide();
+
+              // Show success message
+              alert("Event deleted successfully!");
+            });
         },
 
         eventDrop: function (event, delta, revertFunc) {
-            // Handle event drag and drop here
-            if (!confirm("Are you sure about this change?")) {
-                revertFunc();
-            }
+          // Handle event drag and drop here
+          if (!confirm("Are you sure about this change?")) {
+            revertFunc();
+          }
         },
         eventResize: function (event, delta, revertFunc) {
-            // Handle event resize here
-            if (!confirm("Are you sure about this change?")) {
-                revertFunc();
-            }
+          // Handle event resize here
+          if (!confirm("Are you sure about this change?")) {
+            revertFunc();
+          }
         },
+      });
     });
 
-    // Fetch events from API and update the calendar
-    
-});
+    // Function to fetch data from the API using Axios
+    function fetchDataFromAPI(eventId) {
+      // console.log(eventId);
+      axios
+        .delete(`http://localhost:8080/meeting/delete/${eventId}`)
+        .then(function (response) {
+          // Check if the API call was successful and the meeting was found
+          if (response.data.success && response.data.data.affectedRows > 0) {
+            // Hide the modal
+            var modal = new bootstrap.Modal(
+              document.getElementById("exampleModal")
+            );
+            modal.hide();
 
+            // Show success message
+            alert("Meeting deleted successfully!");
+          } else {
+            // Show error message
+            alert("Meeting not found or deletion unsuccessful.");
+          }
+        })
+        .catch(function (error) {
+          console.error(error);
+          // Show error message
+          alert("An error occurred while deleting the event.");
+        });
+    }
 
+    // Handle delete button click inside the modal
+    document
+      .getElementById("deleteButton")
+      .addEventListener("click", function () {
+        //  console.log("message",a)
+
+        var eventId = localStorage.getItem("shaktiman");
+        var e = Number.parseInt(eventId);
+        console.log(typeof e);
+        fetchDataFromAPI(e);
+      });
   </script>
   <script>
     // function mdisplayProfile(){
