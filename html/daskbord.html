@@ -312,7 +312,9 @@
       let e = JSON.parse(localStorage.getItem("events"))
       console.log(e)
       actualEvents = e.map((item)=>{
-        return {title: item.meeting_name, start: item.start_time, end: item.end_time}
+        let startTimeM = `${item.meeting_date}T${item.start_time}.000Z`
+        let endTimeM = `${item.meeting_date}T${item.end_time}.000Z`
+        return {title: item.meeting_name, start: startTimeM.slice(0, 24), end: endTimeM.slice(0, 24)}
         
       })
       console.log(actualEvents);
@@ -344,7 +346,7 @@
                 startTime +
                 "\n" +
                 "End Time: " +
-                endTime +
+                endTime+
                 "\n" 
 
             alert(eventDetails);
