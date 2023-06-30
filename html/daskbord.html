@@ -111,10 +111,12 @@
               />
             </svg>
           </div>
-          <h6 id="editprofile" style="cursor: pointer">Edit profile</h6>
-          <a href="/html/Index.html" style="text-decoration: none"
-            ><h6>Log out</h6>
-          </a>
+          <div style="text-align: center;">
+            <h6 id="editprofile" style="cursor: pointer">Edit profile</h6>
+            <a href="/html/Index.html" style="text-decoration: none">
+              <h6>Log out</h6>
+            </a>
+          </div>
         </div>
 
         <!-- edit profile -->
@@ -579,7 +581,7 @@
       axios
         .put(`http://localhost:8080/meeting/update/${id}`, data)
         .then(function (response) {
-          console.log(response)
+          // console.log("Aman: ", response)
         });
     };
 
@@ -602,30 +604,26 @@
         });
     };
 
-    
-    //
-    // var events;
     var actualEvents = [];
-    const getEvents = () => {
+    axios
+  .get("http://localhost:8080/meeting/all")
+  .then(function (response) {
+    var events = response.data.data;
+    localStorage.setItem("events", JSON.stringify(events));
+
+    console.log("events", events);
+    getEvents(); // Call getEvents after storing events in local storage
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+
+const getEvents = () => {
   let e = JSON.parse(localStorage.getItem("events"));
-
-  axios
-      .get("http://localhost:8080/meeting/all")
-      .then(function (response) {
-        var events = response.data.data;
-        localStorage.setItem("events", JSON.stringify(events));
-
-        console.log("e", events);
-        // calendar.fullCalendar("renderEvents", events, true);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-
   console.log(e);
   actualEvents = e.map((item) => {
-    let startTimeM = moment(`${item.meeting_date} ${item.start_time}`, 'YYYY-MM-DD HH:mm').toISOString();
-    let endTimeM = moment(`${item.meeting_date} ${item.end_time}`, 'YYYY-MM-DD HH:mm').toISOString();
+    let startTimeM = moment(`${item.meeting_date} ${item.start_time}`, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm');
+    let endTimeM = moment(`${item.meeting_date} ${item.end_time}`, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm');
 
     return {
       id: item.meeting_id,
@@ -634,8 +632,9 @@
       end: endTimeM,
     };
   });
-  console.log(actualEvents);
+  
 };
+
 
     getEvents();
 
@@ -740,10 +739,13 @@
       .addEventListener("click", function () {
         //  console.log("message",a)
 
-        var eventId = localStorage.getItem("shaktiman");
-        var e = Number.parseInt(eventId);
-        console.log(typeof e);
-        fetchDataFromAPI(e);
+        // var eventId = localStorage.getItem("shaktiman");
+        var eventDeleteId = localStorage.getItem('shaktiman');
+        console.log(eventDeleteId);
+        var ea = Number.parseInt(eventDeleteId);
+        console.log(typeof ea);
+        fetchDataFromAPI(ea);
+        console.log("e value : ", ea);
       });
   </script>
   <script>
