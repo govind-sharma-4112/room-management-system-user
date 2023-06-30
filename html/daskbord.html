@@ -234,9 +234,7 @@
       id="modalButton"
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
-    >
-      btn
-    </button>
+    ></button>
 
     <div
       class="modal fade"
@@ -604,36 +602,41 @@
         });
     };
 
-    axios
+    
+    //
+    // var events;
+    var actualEvents = [];
+    const getEvents = () => {
+  let e = JSON.parse(localStorage.getItem("events"));
+
+  axios
       .get("http://localhost:8080/meeting/all")
       .then(function (response) {
         var events = response.data.data;
         localStorage.setItem("events", JSON.stringify(events));
 
-        console.log(events);
+        console.log("e", events);
         // calendar.fullCalendar("renderEvents", events, true);
       })
       .catch(function (error) {
         console.error(error);
       });
-    //
-    // var events;
-    var actualEvents = [];
-    const getEvents = () => {
-      let e = JSON.parse(localStorage.getItem("events"));
-      console.log(e);
-      actualEvents = e.map((item) => {
-        let startTimeM = `${item.meeting_date}T${item.start_time}.000Z`;
-        let endTimeM = `${item.meeting_date}T${item.end_time}.000Z`;
-        return {
-          id: item.meeting_id,
-          title: item.meeting_name,
-          start: startTimeM.slice(0, 24),
-          end: endTimeM.slice(0, 24),
-        };
-      });
-      console.log(actualEvents);
+
+  console.log(e);
+  actualEvents = e.map((item) => {
+    let startTimeM = moment(`${item.meeting_date} ${item.start_time}`, 'YYYY-MM-DD HH:mm').toISOString();
+    let endTimeM = moment(`${item.meeting_date} ${item.end_time}`, 'YYYY-MM-DD HH:mm').toISOString();
+
+    return {
+      id: item.meeting_id,
+      title: item.meeting_name,
+      start: startTimeM,
+      end: endTimeM,
     };
+  });
+  console.log(actualEvents);
+};
+
     getEvents();
 
     document.addEventListener("DOMContentLoaded", function () {

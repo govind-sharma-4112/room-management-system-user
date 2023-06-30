@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Make a PUT request to update the profile
-    axios.put(`http://localhost:8080/profile/${loggedInUserId}`, updatedProfile)
+    axios.put(`http://localhost:8080/profile/update/${loggedInUserId}`, updatedProfile)
       .then(function (response) {
         var responseData = response.data;
         if (responseData.success) {
