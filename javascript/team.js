@@ -1,33 +1,35 @@
+var loggedInUserId = localStorage.getItem('loggedInUserId');
+console.log(loggedInUserId);
+    // Make a GET request to fetch the profile data
+    axios.get(`http://localhost:8080/meeting/get/${loggedInUserId}`)
+    .then(function (response) {
+  var responseData = response.data;
+  console.log("User meeting Data: "+ response);
 
-    var teamMember =[
-    {
-        "sno":"1",
-        "empid":"1",
-        "employeename":"Vaibhav",
-        "slot":"2:00PM"
-    },
-    {
+  if (responseData.success) {
+    var teamMembers = responseData.data;
+    buildTable(teamMembers);
+  } else {
+    console.log(responseData.message);
+  }
+})
+.catch(function (error) {
+  console.error(error);
+});
 
-            "sno":"2",
-            "empid":"1",
-            "employeename":"Vaibhav",
-            "slot":"6:00PM"
+function buildTable(data) {
+var table = document.getElementById("mytable");
+table.innerHTML = ""; // Clear existing table content
 
-        },
-
-
-    ]
-    buildTable(teamMember)
-    function buildTable(data){
-    var table = document.getElementById("mytable")
-    for(var i=0;i<data.length;i++) {
-    var row = `<tr>
-                              <td>${data[i].sno}</td>
-                              <td>${data[i].empid}</td>
-                              <td>${data[i].employeename}</td>
-                              <td>${data[i].slot}</td>
-</tr>`
-    table.innerHTML +=row
+for (var i = 0; i < data.length; i++) {
+  var row = `
+    <tr>
+      <td>${data[i].meeting_id}</td>
+      <td>${data[i].meeting_name}</td>
+      <td>${data[i].start_time}</td>
+      <td>${data[i].end_time}</td>
+      <td>${data[i].meeting_status}</td>
+    </tr>`;
+  table.innerHTML += row;
 }
 }
-

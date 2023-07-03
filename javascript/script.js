@@ -7,27 +7,31 @@ document.addEventListener('DOMContentLoaded', function() {
       var emailInput = document.getElementById('login-username');
       var passwordInput = document.getElementById('login-password');
       
-      var storedUserData = localStorage.getItem('userData');
+      var loginData = {
+        email: emailInput.value,
+        password: passwordInput.value
+      };
       
-      if (storedUserData) {
-        var userData = JSON.parse(storedUserData);
-        
-        if (emailInput.value === userData.email && passwordInput.value === userData.password) {
-          // Successful login
-          // alert('Login successful!');
-          // Redirect to another page or perform other actions
-        //   document.open('Profile.html');
-        //   window.open('Profile.html');
-            window.location.replace("/html/daskbord.html");
+      axios.post('http://localhost:8080/login', loginData)
+        .then(function(response) {
+          var responseData = response.data;
+          if (responseData.success) {
+            var empId = responseData.data[0].emp_id;
 
-        } else {
-          // Invalid credentials
-          alert('Invalid email or password!');
-        }
-      } else {
-        // User data not found
-        alert('No user registered. Please register first.');
-      }
+            localStorage.setItem('loggedInUserId', empId);
+
+            // Successful login
+            window.location.replace('/html/daskbord.html');
+          } else {
+            // Invalid credentials or user not found
+            alert(responseData.message);
+          }
+        })
+        .catch(function(error) {
+          // Handle error
+          console.error(error);
+          alert('An error occurred during login. Please try again.');
+        });
       
       // Clear form fields
       emailInput.value = '';

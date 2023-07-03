@@ -113,12 +113,17 @@ h4{
     margin-top:100px
 }
 footer{
+    justify-self: end;
     display: flex;
     justify-content: space-around;
     width: 100vw;
     background-color: black;
     margin-top: 70px;
     padding: 3em;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+
 }
 .footerLinks{
     padding: 10px;

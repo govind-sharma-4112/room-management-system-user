@@ -1,88 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
-">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
-<link rel="stylesheet" href="/css/daskbord.css">
-
-</head>
-<body>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/daskbord.css" />
+  </head>
+  <body>
     <div class="page-header">
-      
-        <div class="logo">
-          <img src="/images/image (1).jpg" class="logoImg">
-          <div style="margin-left: 80px; margin-top:10px;" class="headerLinks">
-              <a style="text-decoration: none;margin-left: 20px; color: #fff; font-size: 1.7em;" href="#" class="active"><i class="fa-solid fa-house"></i></a>
-              <a style=" text-decoration: none;margin-left: 20px; color: #fff; font-size: 1.7em;" href="/html/team.html" class="active"><i class="fa-solid fa-address-book"></i>            </a>
-          </div>      
+      <div class="logo">
+        <img src="/images/image (1).jpg" class="logoImg" />
+        <div style="margin-left: 80px; margin-top: 10px" class="headerLinks">
+          <a
+            style="
+              text-decoration: none;
+              margin-left: 20px;
+              color: #fff;
+              font-size: 1.7em;
+            "
+            href="#"
+            class="active"
+            ><i class="fa-solid fa-house"></i
+          ></a>
+
+          <a
+            style="
+              text-decoration: none;
+              margin-left: 20px;
+              color: #fff;
+              font-size: 1.7em;
+             
+            "
+            href="/html/appoinment.html"
+            class="active"
+            ><i class="fa fa-plus" aria-hidden="true"></i>
+              </a>
+
+          
+
+          <a
+            style="
+              text-decoration: none;
+              margin-left: 20px;
+              color: #fff;
+              font-size: 1.7em;
+            "
+            href="/html/team.html"
+            class="active"
+            ><i class="fa-solid fa-address-book"></i>
+          </a>
         </div>
-        
-          <div class="header-right">
-            <button class="btn" id="profilecard"><svg xmlns="http://www.w3.org/2000/svg" color="white" width="35" height="35" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-          </svg></button>
-  
-          <div class="profilepopupcard" id="profilecard">
-            <div style="padding-left: 55px;margin-bottom: 10px;">
-              <svg xmlns="http://www.w3.org/2000/svg"  color="black" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-              </svg>
-            </div>
-            <h6 id="editprofile" style="cursor:pointer;">Edit profile</h6>
-            <a href="/html/Index.html" style="text-decoration: none;"><h6>Log out</h6> </a>
+      </div>
+
+      <div class="header-right">
+        <button class="btn" id="profilecard">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            color="white"
+            width="35"
+            height="35"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        </button>
+
+        <div class="profilepopupcard" id="profilecard">
+          <div style="padding-left: 55px; margin-bottom: 10px; margin-left: 12px;">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              color="black"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
           </div>
-          <!-- edit profile -->
-          <div class="profile-card" style="position: absolute;">
-            <i class="fa-solid fa-x" style="position: absolute; top: 15px; left: 90%;" id="closeditprofile"></i>
-  
-            <div class="profile-header">
-              <img src="/images/image (1).jpg" alt="Profile Picture" > 
-              <h2 id="name">Aman Patel</h2>
-              <p id="title">Web Developer</p>
-            </div>
-            <div class="profile-details">
-              <ul>
-                <li><strong>Email:</strong> <span id="email">aman@example.com</span></li>
-                <li><strong>Location:</strong> <span id="location">Indore, India</span></li>
-                <li><strong>Skills:</strong> <span id="skills">HTML, CSS, JavaScript</span></li>
-              </ul>
-            </div>
-            <div class="profile-footer">
-              <a href="#" id="edit-btn" class="profile-button">Edit Profile</a>
-              <div class="edit-form hidden" id="edit-form">
-                <input class="profile-input" type="text" id="edit-name" placeholder="Name">
-                <input class="profile-input" type="text" id="edit-title" placeholder="Title">
-                <input class="profile-input" type="text" id="edit-email" placeholder="Email">
-                <input class="profile-input" type="text" id="edit-location" placeholder="Location">
-                <input class="profile-input" type="text" id="edit-skills" placeholder="Skills">
-                <button class="profile-button" id="save-btn">Save</button>
-                <button class="profile-button" id="cancel-btn">Cancel</button>
-              </div>
+          <div style="text-align: center;">
+            <h6 id="editprofile" style="cursor: pointer">Edit profile</h6>
+            <a href="/html/Index.html" style="text-decoration: none">
+              <h6>Log out</h6>
+            </a>
+          </div>
+        </div>
+
+        <!-- edit profile -->
+        <div class="profile-card" style="position: absolute">
+          <i
+            class="fa-solid fa-x"
+            style="position: absolute; top: 15px; left: 90%"
+            id="closeditprofile"
+          ></i>
+
+          <div class="profile-header">
+            <img src="/images/image (1).jpg" alt="Profile Picture" />
+            <h2 id="name"></h2>
+            <p id="title"></p>
+          </div>
+          <div class="profile-details">
+            <ul>
+              <li><strong>Email:</strong> <span id="email"></span></li>
+              <li>
+                <strong>password:</strong>
+                <span id="location"></span>
+              </li>
+              <li>
+                <strong>Skills:</strong>
+                <span id="skills"></span>
+              </li>
+            </ul>
+          </div>
+          <div class="profile-footer">
+            <a href="#" id="edit-btn" class="profile-button">Edit Profile</a>
+            <div class="edit-form hidden" id="edit-form">
+              <input
+                class="profile-input"
+                type="text"
+                id="edit-name"
+                placeholder="Name"
+              />
+              <input
+                class="profile-input"
+                type="text"
+                id="edit-title"
+                placeholder="Title"
+              />
+              <input
+                class="profile-input"
+                type="text"
+                id="edit-email"
+                placeholder="Email"
+              />
+              <input
+                class="profile-input"
+                type="text"
+                id="edit-location"
+                placeholder="Password"
+              />
+              <input
+                class="profile-input"
+                type="text"
+                id="edit-skills"
+                placeholder="Skills"
+              />
+              <button class="profile-button" id="save-btn">Save</button>
+              <button class="profile-button" id="cancel-btn">Cancel</button>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-<div>
-    <div class="calendarside" style="display: flex;position: relative;">
+    <div>
+      <div class="calendarside" style="display: flex; position: relative">
         <div class="sidebar">
-          <!-- <button style="margin: 20px 0 5px 100px;" onclick="mdisplayProfile()" ondblclick="mhideProfile()">Create Meeting</button> -->
-          
-          <a href="/html/appoinment.html"><button style="margin: 20px 0 5px 100px;">Create Meeting</button></a>
+         
           <div class="wrapper" id="body">
             <header>
               <p class="current-date"></p>
@@ -103,119 +226,562 @@
               </ul>
               <ul class="days"></ul>
             </div>
-            
           </div>
         </div>
-        <div id="calendar" style="z-index: 1; padding-top: 15px; width: 980px;height: 100vh;margin: 1em;"></div>
+        <div
+          id="calendar"
+          style="
+            z-index: 1;
+            padding-top: 15px;
+            width: 980px;
+            height: 100vh;
+            margin: 1em;
+          "
+        ></div>
       </div>
-    
-    
+    </div>
+
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn"
+      id="modalButton"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    ></button>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Event Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Event details will be inserted dynamically here -->
+            <form id="updateForm">
+              <div class="mb-3">
+                <label for="meetingName" class="form-label">Meeting Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="meetingName"
+                  name="meeting_name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="startTime"
+                  name="start_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="endTime"
+                  name="end_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingDate" class="form-label">Meeting Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="meetingDate"
+                  name="meeting_date"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingStatus" class="form-label"
+                  >Meeting Status</label
+                >
+                <select
+                  class="form-select"
+                  id="meetingStatus"
+                  name="meeting_status"
+                  required
+                >
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="employeeId" class="form-label">Employee ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeId"
+                  name="fk_emp_id"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="roomId" class="form-label">Room ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="roomId"
+                  name="fk_room_id"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="deleteButton">
+              Delete
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="updateButton"
+              data-bs-toggle="modal"
+              data-bs-target="#updateModal"
+              data-bs-dismiss="modal"
+              onclick="getMeetingDetailForUpdate()"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="updateModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Update Meeting</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <form id="updateForm">
+              <div class="mb-3">
+                <label for="meetingName" class="form-label">Meeting Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="meetingName"
+                  name="meeting_name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="startTime"
+                  name="start_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input
+                  type="time"
+                  class="form-control"
+                  id="endTime"
+                  name="end_time"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingDate" class="form-label">Meeting Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="meetingDate"
+                  name="meeting_date"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="meetingStatus" class="form-label"
+                  >Meeting Status</label
+                >
+                <select
+                  class="form-select"
+                  id="meetingStatus"
+                  name="meeting_status"
+                  required
+                >
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="employeeId" class="form-label">Employee ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="employeeId"
+                  name="fk_emp_id"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="roomId" class="form-label">Room ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="roomId"
+                  name="fk_room_id"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              onclick="updateMeeting()"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <div class="company">
-          <img src="/images/image (1).jpg" alt="" style="margin: 10px;">
-          <p style="color:#fff;margin: 10px ;">36, Bicholi Hapsi Rd,<br> near Phoenix Hospital,<br> Shukh Shanti Nagar,<br> Indore, Madhya Pradesh <br>452001
-          </p>
-        </div>
-        <div class="footerLinks">
-            <h3 style="color: #fff ;margin-left: 20px;">links</h3>
-            <ul class="footerLinkList">
-              <li  style="list-style: none; "><a href="/" style="color: #fff; text-decoration: none; text-transform: capitalize;">home</a></li>
-              <li  style="list-style: none"><a href="/room-management-system-user/html/Index.html" style="color: #fff;text-decoration: none;">Login</a></li>
-              <li  style="list-style: none;"><a href="/register.html" style="color: #fff;text-decoration: none;">Registration</a></li>
-              <li  style="list-style: none;"><a href="/createMeeting.html" style="color: #fff;text-decoration: none;">Meeting</a></li>
-            </ul>
-        </div>
-        <div style="margin-top: 35px;">
-          <i style="color: #fff; font-size: 35px; margin: 10px;" class="bi bi-twitter"></i>
-          <i style="color: #fff; font-size: 35px; margin: 10px;" class="bi bi-instagram"></i>
-          <i style="color: #fff; font-size: 35px; margin: 10px;" class="bi bi-linkedin"></i>
-        </div>
-      </footer>
+      <div class="company">
+        <img src="/images/image (1).jpg" alt="" style="margin: 10px" />
+        <p style="color: #fff; margin: 10px">
+          36, Bicholi Hapsi Rd,<br />
+          near Phoenix Hospital,<br />
+          Shukh Shanti Nagar,<br />
+          Indore, Madhya Pradesh <br />452001
+        </p>
+      </div>
+      <div class="footerLinks">
+        <h3 style="color: #fff; margin-left: 20px">links</h3>
+        <ul class="footerLinkList">
+          <li style="list-style: none">
+            <a
+              href="/"
+              style="
+                color: #fff;
+                text-decoration: none;
+                text-transform: capitalize;
+              "
+              >home</a
+            >
+          </li>
+          <li style="list-style: none">
+            <a
+              href="/room-management-system-user/html/Index.html"
+              style="color: #fff; text-decoration: none"
+              >Login</a
+            >
+          </li>
+          <li style="list-style: none">
+            <a href="/register.html" style="color: #fff; text-decoration: none"
+              >Registration</a
+            >
+          </li>
+          <li style="list-style: none">
+            <a
+              href="/createMeeting.html"
+              style="color: #fff; text-decoration: none"
+              >Meeting</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div style="margin-top: 35px">
+        <i
+          style="color: #fff; font-size: 35px; margin: 10px"
+          class="bi bi-twitter"
+        ></i>
+        <i
+          style="color: #fff; font-size: 35px; margin: 10px"
+          class="bi bi-instagram"
+        ></i>
+        <i
+          style="color: #fff; font-size: 35px; margin: 10px"
+          class="bi bi-linkedin"
+        ></i>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const updateMeeting = () => {
+      let meeting_name = document.getElementById("meetingName").value;
+      let start_time = document.getElementById("startTime").value;
+      let end_time = document.getElementById("endTime").value;
+      let meeting_date = document.getElementById("meetingDate").value;
+      let meeting_status = document.getElementById("meetingStatus").value;
+      let fk_emp_id = document.getElementById("employeeId").value;
+      let fk_room_id = document.getElementById("roomId").value;
+
       
-  
-</body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var calendar = $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek,agendaDay'
-    },
-    editable: true,
-    events:[
-  { title: 'Meeting', start: new Date('2023-06-15T09:00:00'), end: new Date('2023-06-15T10:30:00') },
-  { title: 'Lunch Break', start: new Date('2023-06-15T12:00:00'), end: new Date('2023-06-15T13:00:00') },
-  { title: 'Presentation', start: new Date('2023-06-15T14:00:00'), end: new Date('2023-06-15T15:30:00') },
-  { title: 'Presentation', start: new Date('2023-06-16T14:00:00'), end: new Date('2023-06-16T15:30:00') },
-  { title: 'Presentation', start: new Date('2023-06-17T14:00:00'), end: new Date('2023-06-17T15:30:00') },
-  { title: 'Presentation', start: new Date('2023-06-17T14:00:00'), end: new Date('2023-06-17T15:30:00') }
-
-],
-    eventClick: function(event) {
-      // Handle event click here
-
-      alert('Title: ' + event.title +' \n'+'start Time'+ event.start +' \n'+'end Time'+event.end);
-    
-    },
-    eventDrop: function(event, delta, revertFunc) {
-      // Handle event drag and drop here
-      if (!confirm("Are you sure about this change?")) {
-        revertFunc();
+      const data = {
+        meeting_name,
+        start_time,
+        end_time,
+        meeting_date,
+        meeting_status,
+        fk_emp_id,
+        fk_room_id,
+        
+        updated_by : fk_emp_id
       }
-    },
-    eventResize: function(event, delta, revertFunc) {
-      // Handle event resize here
-      if (!confirm("Are you sure about this change?")) {
-        revertFunc();
-      }
-    }
+
+      const id = localStorage.getItem("shaktiman");
+
+      axios
+        .put(`http://localhost:8080/meeting/update/${id}`, data)
+        .then(function (response) {
+        });
+    };
+
+    const getMeetingDetailForUpdate = () => {
+      const id = localStorage.getItem("shaktiman");
+      console.log(id);
+      let meeting;
+      axios
+        .get(`http://localhost:8080/meeting/unique/${id}`)
+        .then(function (response) {
+          meeting = response.data.data[0];
+          // calendar.fullCalendar("renderEvents", events, true);
+          document.getElementById("meetingName").value = meeting.meeting_name;
+          document.getElementById("startTime").value = meeting.start_time;
+          document.getElementById("endTime").value = meeting.end_time;
+          document.getElementById("meetingDate").value = meeting.meeting_date;
+          document.getElementById("meetingStatus").value =meeting.meeting_status;
+          document.getElementById("employeeId").value = meeting.fk_emp_id;
+          document.getElementById("roomId").value = meeting.fk_room_id;
+        });
+    };
+
+    var actualEvents = [];
+    axios
+  .get("http://localhost:8080/meeting/all")
+  .then(function (response) {
+    var events = response.data.data;
+    localStorage.setItem("events", JSON.stringify(events));
+
+    console.log("events", events);
+    getEvents(); // Call getEvents after storing events in local storage
+  })
+  .catch(function (error) {
+    console.error(error);
   });
-});
 
-</script>
-<script>
-   
-     
-      // function mdisplayProfile(){
-      //   const card=document.getElementById('meetingcard');
-      //   card.style.display="block";
-      // }
-      $('#mcndr').click(()=>{
-        $('#meetingcard').show();
-        
+const getEvents = () => {
+  let e = JSON.parse(localStorage.getItem("events"));
+  console.log(e);
+  actualEvents = e.map((item) => {
+    let startTimeM = moment(`${item.meeting_date} ${item.start_time}`, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm');
+    let endTimeM = moment(`${item.meeting_date} ${item.end_time}`, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm');
+
+    return {
+      id: item.meeting_id,
+      title: item.meeting_name,
+      start: startTimeM,
+      end: endTimeM,
+    };
+  });
+  
+};
+
+
+    getEvents();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var calendar = $("#calendar").fullCalendar({
+        header: {
+          left: "prev,next today",
+          center: "title",
+          right: "month,agendaWeek,agendaDay",
+        },
+        editable: true,
+        events: actualEvents, // Initialize events as an empty array
+
+        eventClick: function (event) {
+          var startTime = moment(event.start).format("YYYY-MM-DD HH:mm:ss");
+          var endTime = moment(event.end).format("YYYY-MM-DD HH:mm:ss");
+          localStorage.setItem("shaktiman", event.id);
+          var eventDetails =
+            "Meeting ID: " +
+            event.id +
+            "<br>" +
+            "Title: " +
+            event.title +
+            "<br>" +
+            "Start Time: " +
+            startTime +
+            "<br>" +
+            "End Time: " +
+            endTime +
+            "<br>";
+
+          // Set the event details in the modal
+          document.getElementById("modalTitle").innerHTML = "Meeting Details";
+          document.getElementById("modalBody").innerHTML = eventDetails;
+          // Show the modal
+          var modal = new bootstrap.Modal(
+            document.getElementById("exampleModal")
+          );
+          modal.show();
+
+          // Handle delete button click
+          document
+            .getElementById("deleteButton")
+            .addEventListener("click", function () {
+              // Remove the event
+              $("#calendar").fullCalendar("removeEvents", event._id);
+
+              // Hide the modal
+              modal.hide();
+
+              // Show success message
+              alert("Event deleted successfully!");
+            });
+        },
+
+        eventDrop: function (event, delta, revertFunc) {
+          // Handle event drag and drop here
+          if (!confirm("Are you sure about this change?")) {
+            revertFunc();
+          }
+        },
+        eventResize: function (event, delta, revertFunc) {
+          // Handle event resize here
+          if (!confirm("Are you sure about this change?")) {
+            revertFunc();
+          }
+        },
       });
-      $('#closemeeting').click(()=>{
-        $('#meetingcard').hide();
-        
+    });
+
+    // Function to fetch data from the API using Axios
+    function fetchDataFromAPI(eventId) {
+      // console.log(eventId);
+      axios
+        .delete(`http://localhost:8080/meeting/delete/${eventId}`)
+        .then(function (response) {
+          // Check if the API call was successful and the meeting was found
+          if (response.data.success && response.data.data.affectedRows > 0) {
+            // Hide the modal
+            var modal = new bootstrap.Modal(
+              document.getElementById("exampleModal")
+            );
+            modal.hide();
+
+            // Show success message
+            alert("Meeting deleted successfully!");
+          } else {
+            // Show error message
+            alert("Meeting not found or deletion unsuccessful.");
+          }
+        })
+        .catch(function (error) {
+          console.error(error);
+          // Show error message
+          alert("An error occurred while deleting the event.");
+        });
+    }
+
+    // Handle delete button click inside the modal
+    document
+      .getElementById("deleteButton")
+      .addEventListener("click", function () {
+        //  console.log("message",a)
+
+        // var eventId = localStorage.getItem("shaktiman");
+        var eventDeleteId = localStorage.getItem('shaktiman');
+        console.log(eventDeleteId);
+        var ea = Number.parseInt(eventDeleteId);
+        console.log(typeof ea);
+        fetchDataFromAPI(ea);
+        console.log("e value : ", ea);
       });
-      $('#closepaticipant').click(()=>{
-        $('.mmcard').hide();
-        
-      });
-      
-      $("#profilecard").click(()=>{
-        $(".profilepopupcard").toggle();
-      });
-      $(".mmlistpopoup").click(()=>{
-        $(".mmcard").toggle();
-      });
-      $('#editprofile').click(()=>{
-        $('.profile-card').show();
-        
-      });
-      $('#closeditprofile').click(()=>{
-        $('.profile-card').hide();
-        
-      });
-      // window.addEventListener("click", ()=> {
-      //         document.getElementsByClassName("mmcard").style.display ='none';
-      //       });
-</script>
-<script src="/javascript/daskbord.js"></script>
+  </script>
+  <script>
+    
+    $("#mcndr").click(() => {
+      $("#meetingcard").show();
+    });
+    $("#closemeeting").click(() => {
+      $("#meetingcard").hide();
+    });
+    $("#closepaticipant").click(() => {
+      $(".mmcard").hide();
+    });
+
+    $("#profilecard").click(() => {
+      $(".profilepopupcard").toggle();
+    });
+    $(".mmlistpopoup").click(() => {
+      $(".mmcard").toggle();
+    });
+    $("#editprofile").click(() => {
+      $(".profile-card").show();
+    });
+    $("#closeditprofile").click(() => {
+      $(".profile-card").hide();
+    });
+          
+  </script>
+  <script src="/javascript/daskbord.js"></script>
 </html>
