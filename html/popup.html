@@ -250,7 +250,6 @@
                 console.log(selectedParticipants[i].email)
                 sendMailTo.push(selectedParticipants[i].email)
             }
-
             const result = sendMailTo.join(sendMailToEmails);
 
             window.location.replace('/html/appoinment.html');
@@ -260,8 +259,8 @@
         const selectButton = document.querySelector('button[type="submit"]');
         selectButton.addEventListener('click', handleSelectButton);
 
-    </script>
-    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>   
+    
     </script>
 </body>
 
