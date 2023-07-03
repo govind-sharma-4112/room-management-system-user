@@ -205,9 +205,7 @@
     <div>
       <div class="calendarside" style="display: flex; position: relative">
         <div class="sidebar">
-          <!-- <button style="margin: 20px 0 5px 100px;" onclick="mdisplayProfile()" ondblclick="mhideProfile()">Create Meeting</button> -->
-
-          
+         
           <div class="wrapper" id="body">
             <header>
               <p class="current-date"></p>
@@ -377,7 +375,6 @@
     </div>
 
     <!-- Modal -->
-    <!-- Modal -->
     <div
       class="modal fade"
       id="updateModal"
@@ -397,7 +394,6 @@
             ></button>
           </div>
           <div class="modal-body" id="modalBody">
-            <!-- Event details will be inserted dynamically here -->
             <form id="updateForm">
               <div class="mb-3">
                 <label for="meetingName" class="form-label">Meeting Name</label>
@@ -595,7 +591,6 @@
       axios
         .put(`http://localhost:8080/meeting/update/${id}`, data)
         .then(function (response) {
-          // console.log("Aman: ", response)
         });
     };
 
@@ -763,10 +758,7 @@ const getEvents = () => {
       });
   </script>
   <script>
-    // function mdisplayProfile(){
-    //   const card=document.getElementById('meetingcard');
-    //   card.style.display="block";
-    // }
+    
     $("#mcndr").click(() => {
       $("#meetingcard").show();
     });
@@ -789,9 +781,7 @@ const getEvents = () => {
     $("#closeditprofile").click(() => {
       $(".profile-card").hide();
     });
-    // window.addEventListener("click", ()=> {
-    //         document.getElementsByClassName("mmcard").style.display ='none';
-    //       });
+          
   </script>
   <script src="/javascript/daskbord.js"></script>
 </html>

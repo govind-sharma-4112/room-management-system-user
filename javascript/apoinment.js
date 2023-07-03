@@ -45,8 +45,6 @@ async function meetingadded() {
       is_active,
     });
     console.log(res.data);
-    // Prevent the form from submitting
-    // Retrieve the values from the form fields
     const title = document.getElementById("title-form").value;
     const startDate = document.getElementById("startDate-form").value;
     const startTime = document.getElementById("starton-form").value;
@@ -75,9 +73,7 @@ async function meetingadded() {
       appointments.push(appointment);
       // Store the updated appointments array in local storage
       localStorage.setItem("appointments", JSON.stringify(appointments));
-      // Clear the form fields
-
-      // Optionally, display a success message or perform other actions
+      
 
       //mail featuring
       let sendMailTo = [];

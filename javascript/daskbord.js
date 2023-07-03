@@ -143,8 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(function (response) {
         var responseData = response.data;
         if (responseData.success) {
-          // Profile update successful
-          // Display success message or perform other actions
         } else {
           // Profile update failed
           console.log(responseData.message);
