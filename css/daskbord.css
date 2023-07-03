@@ -85,8 +85,13 @@
   
     button {
       padding: 0.4rem;
+      display: block;
     }
     
+   .sidebar #meetbtn {
+    display: block !important
+   }
+
     .sidebar{
       display: none
     }
@@ -94,6 +99,59 @@
         height: 100vh;
     } */
   }
+
+
+
+  @media screen and (max-width: 400px) {
+    .nav-bar {
+      display: none;
+      position: absolute;
+      top: 6rem;
+      left: 0;
+      width: 100%;
+      background-color: var(--bgcolor);
+      text-align: center;
+    }
+    .headerLinks {
+      display: flex;
+      font-size: 1em;
+      justify-content: center; /* Add this line to center the links horizontally */
+    }
+    .logoImg {
+      width: 6rem;
+    }
+    .nav-bar.responsive {
+      display: block;
+      z-index: 2;
+      background-color: #000;
+    }
+  
+    .nav-bar a {
+      display: block;
+    }
+  
+    .menu-icon {
+      display: block;
+      z-index: 1;
+    }
+  
+    button {
+      padding: 0.4rem;
+    }
+  
+    .sidebar {
+      display: none;
+    }
+  
+    .page-header {
+      padding: 0 1rem; /* Modify the padding to remove left and right padding */
+    }
+  }
+  
+  @media screen and (max-width: 370px) {
+    /* No changes needed for this media query */
+  }
+  
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 

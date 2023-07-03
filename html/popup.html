@@ -244,7 +244,7 @@
         localStorage.setItem('selectedParticipants', JSON.stringify(selectedParticipants));
 
         // Redirect the user to the second page or perform any other desired action
-        window.location.replace('/html/appoinment.html');
+      
         let sendMailTo = [];
         const sendMailToEmails = ', ';
         for (let i = 0; i < selectedParticipants.length; i++) {
@@ -271,6 +271,7 @@
     // Event listener for the select button
     const selectButton = document.querySelector('button[type="submit"]');
     selectButton.addEventListener('click', handleSelectButton);
+    window.location.replace('/html/appoinment.html');
 
 </script>
 <script src="https://smtpjs.com/v3/smtp.js">
