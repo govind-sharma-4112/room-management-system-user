@@ -152,26 +152,20 @@
             <div id="overlay" class="overlay"></div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script>
         // JavaScript code for the participants list page
         const participantList = document.getElementById('participantList');
         const searchInput = document.getElementById('searchInput');
         const popup = document.getElementById('popup');
         const overlay = document.getElementById('overlay');
-        let participants = [
-            {
-                name: "Aman",
-                email: "aman.patel@averybit.in"
-            },
-            {
-                name: "Sourabh",
-                email: "Sourabh.sharma@averybit.in"
-            },
-            {
-                name: "Vaibhav",
-                email: "vaibhav.kumawat@averybit.in"
-            }
-        ];
+        axios.get("http://localhost:8080/profile/all").then((res) => {
+            localStorage.setItem("participantsToList", JSON.stringify(res.data.data));
+        });
+        var participants = JSON.parse(localStorage.getItem("participantsToList"))
+        console.log(participants)
+        
 
         // Display participants
         function displayParticipants(participants) {
