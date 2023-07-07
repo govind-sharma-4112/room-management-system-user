@@ -114,7 +114,7 @@ async function meetingadded() {
         Subject: resultTitle,
         Body: resultDescription,
       })
-        .then((message) => alert(message))
+        .then((message) => alert("Email Sent"))
         .catch(function (err) {
           console.log(err);
         });
