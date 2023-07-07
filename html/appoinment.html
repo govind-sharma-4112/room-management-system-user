@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c9eeff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 350px;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        #inputParticipant {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        #discription-form {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        .appointment-time {
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+        .button {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #1bb7ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #62CDFF;
+        }
+    </style>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Add Meeting</h1>
+            <form id="appoinment-form" action="#">
+                <div class="form-group">
+                    <label>Add Participants</label>
+                    <div id="inputParticipant">
+                        <ul id="participant-form-list"></ul>
+
+                    </div>
+                    <a href="/html/popup.html" style="position:absolute; bottom:10px; left:100%"><i
+                            class="fa-solid fa-address-book"></i></a>
+
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="title-form" placeholder="Enter your title" value="" required>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="startDate-form" placeholder="Enter start time" required>
+                </div>
+                <div class="appointment-time">
+                    <div class="form-group">
+                        <label>Start time</label>
+                        <input type="time" id="starton-form" placeholder="Enter start time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End time</label>
+                        <input type="time" id="endson-form" placeholder="Enter end time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <!-- <input type="textfield" id="discription-form" placeholder="Enter text here..."> -->
+                    <textarea name="discription-form" id="discription-form" cols="20" rows="2"
+                        placeholder="Enter text here..."></textarea>
+                </div>
+
+                
+                <form class="form-group">
+                    <span style="padding-bottom: 50px;">Select room <br></span>
+                    <select name="chapter" id="chapter" style="width: 105%;">
+                        <option id="" value="room" selected="selected"></option>
+                    </select>
+                </form>
+                <div id="result" value="hey">
+                </div>
+                <br>
+                <div class="button">
+                    <button id="createdButtonByAman" type="submit" onclick="meetingadded()">Create</button>
+                    <!-- <button type="submit">Discard</button> -->
+                    <button type="cancel" onclick=" javascript:window.location='./daskbord.html'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        const participantFormList = document.getElementById("participant-form-list");
+
+
+        // Retrieve the selected participants from local storage
+        let selectedParticipants = JSON.parse(localStorage.getItem("selectedParticipants"));
+        // Function to display email data in the participant-form-list
+        function displayEmailData(emailData) {
+            participantFormList.innerHTML = "";
+            emailData.forEach((email) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = email;
+                participantFormList.appendChild(listItem);
+            });
+       }
+
+        // Call the function to display email data
+        displayEmailData(selectedParticipants);
+
+
+
+        // Retrieve the participant names from local storage
+var participantNames = JSON.parse(localStorage.getItem("selectedParticipants"));
+
+// Check if participant names exist in local storage
+if (participantNames) {
+  // Get the participant list element
+  var participantList = document.getElementById("participant-form-list");
+  // Clear the existing list
+  participantList.innerHTML = '';
+  // Iterate over participant names and create list items
+  for (var i = 0; i < participantNames.length; i++) {
+    var participant = participantNames[i].email;
+    // Create a list item element
+    var listItem = document.createElement("li");
+    // Set the text content to the participant name
+    listItem.textContent = participant;
+    // Append the list item to the participant list
+    participantList.appendChild(listItem);
+  }
+}
+
+// Variable to track whether local storage should be cleared
+var shouldClearLocalStorage = false;
+
+// Function to clear local storage after 5 seconds
+function clearLocalStorage() {
+  if (shouldClearLocalStorage) {
+    localStorage.removeItem("selectedParticipants");
+  }
+}
+
+// Clear local storage after 5 seconds
+setTimeout(clearLocalStorage, 5000);
+
+// Function to handle the create button click
+function handleCreateButton() {
+  // Set the flag to clear local storage
+  shouldClearLocalStorage = true;
+  // Perform other desired actions for creating the appointment
+}
+
+// Event listener for the create button
+var createButton = document.getElementById("createdButtonByAman");
+createButton.addEventListener("click", handleCreateButton);
+
+// Event listener for page refresh or close
+window.addEventListener("beforeunload", function () {
+  shouldClearLocalStorage = true;
+});
+
+// Event listener for page leave or navigate away
+window.addEventListener("unload", function () {
+  clearLocalStorage();
+});
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="/javascript/apoinment.js" defer></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</body>
+
+</html>

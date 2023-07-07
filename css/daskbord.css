@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page-header {
+    background-color:#475569;
+    padding: 1.3rem;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:0 0 20px 0 #475569;
+    position: relative;
+  }
+  .logo {
+    align-self: center;
+    margin-left: 1.2rem;
+    display:flex ;
+  }
+  
+  .nav-bar {
+    margin: auto;
+  }
+  
+  .nav-bar .a {
+    color: #fff;
+    padding: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .menu-icon {
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+  
+  button {
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.9rem;
+  }
+  
+  
+  @media screen and (max-width: 700px) {
+    .nav-bar {
+      display: none;
+      position: absolute;
+      top: 6rem;
+      left: 0;
+      width: 100%;
+      background-color: var(--bgcolor);
+      text-align: center;
+    }
+    .page-header{
+      padding-left: 20px;
+      padding-right:25px ;
+      justify-content: center;
+    }
+    .headerLinks{
+      display: flex;
+      font-size: 1em;
+    }
+    .logoImg{
+      width: 150px;
+  
+    }
+    .nav-bar.responsive {
+      display: block;
+      z-index: 2;
+      background-color: #000;
+    }
+  
+    .nav-bar a {
+      display: block;
+    }
+  
+    .menu-icon {
+      display: block;
+      z-index: 1;
+    }
+  
+    button {
+      padding: 0.4rem;
+      display: block;
+    }
+    
+   .sidebar #meetbtn {
+    display: block !important
+   }
+
+    .sidebar{
+      display: none
+    }
+    
+  }
+
+
+
+  @media screen and (max-width: 400px) {
+    .nav-bar {
+      display: none;
+      position: absolute;
+      top: 6rem;
+      left: 0;
+      width: 100%;
+      background-color: var(--bgcolor);
+      text-align: center;
+    }
+    .headerLinks {
+      display: flex;
+      font-size: 1em;
+      justify-content: center; /* Add this line to center the links horizontally */
+    }
+    .logoImg {
+      width: 6rem;
+    }
+    .nav-bar.responsive {
+      display: block;
+      z-index: 2;
+      background-color: #000;
+    }
+  
+    .nav-bar a {
+      display: block;
+    }
+  
+    .menu-icon {
+      display: block;
+      z-index: 1;
+    }
+  
+    button {
+      padding: 0.4rem;
+    }
+  
+    .sidebar {
+      display: none;
+    }
+  
+    .page-header {
+      padding: 0 1rem; /* Modify the padding to remove left and right padding */
+    }
+  }
+  
+  @media screen and (max-width: 370px) {
+    /* No changes needed for this media query */
+  }
+  
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+  }
+
+  .wrapper {
+      width: 350px;
+      height: 450px;
+      margin:1em;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  .wrapper header {
+      display: flex;
+      align-items: center;
+      padding: 25px 30px 10px;
+      justify-content: space-between;
+  }
+  
+  header .icons {
+      display: flex;
+  }
+  
+  header .icons span {
+      height: 38px;
+      width: 38px;
+      margin: 0 1px;
+      cursor: pointer;
+      color: #878787;
+      text-align: center;
+      line-height: 38px;
+      font-size: 1.9rem;
+      user-select: none;
+      border-radius: 50%;
+  }
+  
+  .icons span:last-child {
+      margin-right: -10px;
+  }
+  
+  header .icons span:hover {
+      background: #f2f2f2;
+  }
+  
+  header .current-date {
+      font-size: 1.45rem;
+      font-weight: 500;
+  }
+  
+  .calendar {
+      padding: 20px;
+  }
+  
+  .calendar ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      text-align: center;
+  }
+  
+  .calendar .days {
+      margin-bottom: 20px;
+  }
+  
+  .calendar li {
+      color: #333;
+      width: calc(100% / 7);
+      font-size: 1.07rem;
+  }
+  
+  .calendar .weeks li {
+      font-weight: 500;
+      cursor: default;
+  }
+  
+  .calendar .days li {
+      z-index: 1;
+      cursor: pointer;
+      position: relative;
+      margin-top: 30px;
+  }
+  
+  .days li.inactive {
+      color: #aaa;
+  }
+  
+  .days li.active {
+      color: #fff;
+  }
+  
+  .days li::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      height: 40px;
+      width: 40px;
+      z-index: -1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
+  .days li.active::before {
+      background: #9B59B6;
+  }
+  
+  .days li:not(.active):hover::before {
+      background: #f2f2f2;
+  }
+
+  footer{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    background-color: black;
+    margin-top: 120px;
+    padding: 3em;
+}
+.footerLinks{
+    /* padding: 10px; */
+    margin-top: 20px;
+}
+/* .footerLinkList{
+    margin: 10px;
+} */
+.footerLinkList li{
+    list-style: none;
+    color: #fff;
+}
+
+
+
+
+/* =========================popuup=================== */
+
+.profilepopupcard{
+  width:200px;
+  height: 130px;
+  border: 1px ;
+  position: absolute;
+  top :80px;
+  right: 20px;
+  z-index: 3;
+  background-color: aliceblue;
+  border-radius: 5px;
+  justify-content: center;
+  padding: 10px;
+  box-shadow:10px blacks;
+  display: none;
+}
+
+.profile-card {
+    background-color: #ffffff;
+    width: 350px;
+    padding: 30px;
+    border-radius: 5px;
+    z-index: 3;right:10px;
+    top: 80px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+  } 
+  .profile-header {
+    text-align: center;
+  }
+  
+  .profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+  }
+  
+  .profile-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .profile-details li {
+    margin-bottom: 10px;
+  }
+  
+  .profile-footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .profile-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .profile-button:hover {
+    background-color: #45a049;
+  }
+  
+  .edit-form.hidden {
+    display: none;
+  }
+  
+  .edit-form .profile-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  } 
+  
+  @media screen and (max-width: 480px) {
+    .profile-card {
+      width: 90%;
+      max-width: 400px;
+    }
+  }
+  

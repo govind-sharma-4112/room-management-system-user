@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Login</h1>
+      <form id="login-form" action="#">
+        <div class="form-group">
+          <label for="login-username">Email</label>
+          <input type="text" id="login-username" placeholder="Enter your Email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <div class="register-link">
+        <p>Don't have an account? <a href="/html/register.html">Register here</a></p>
+       </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/javascript/script.js"></script>
+</body>
+</html>

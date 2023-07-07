@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.page-header {
+    background-color:#475569;
+    padding: 1.3rem;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    align-self: center;
+    margin-left: 1.2rem;
+}
+.nav-bar {
+    margin: auto;
+}
+.nav-bar .a {
+    color: #fff;
+    padding: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.menu-icon {
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+button {
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.9rem;
+}
+@media screen and (max-width: 700px) {
+    .nav-bar {
+        display: none;
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        width: 100%;
+        background-color: var(--bgcolor);
+        text-align: center;
+    }
+    .nav-bar.responsive {
+        display: block;
+        z-index: 2;
+        background-color: #000;
+    }
+    .nav-bar a {
+        display: block;
+    }
+    .menu-icon {
+        display: block;
+        z-index: 1;
+    }
+    button {
+        padding: 0.4rem;
+    }
+    .logo {
+        padding-right: 10em;
+    }
+    .sidebar{
+        display: none;
+    }
+    #calendar{
+        height: 100vh;
+    }
+}
+
+table,tr{
+    border: 1px solid black;
+    width:100%
+}
+#first{
+    background-color: #211f1f;
+    color:white;
+}
+
+ul{
+
+    display: inline;
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.collapse form{
+    padding-left:100px;
+    padding-right:300px;
+
+}
+.collapse input{
+    width: 500px;
+}
+#home{
+    padding-left: 100px;
+}
+.navbar{
+    margin-bottom: 50px;
+}
+
+
+footer{
+    justify-self: end;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    max-height: 40vh;
+    background-color: black;
+    margin-top: 70px;
+    padding: 3em;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+
+}
+.footerLinks{
+    padding: 10px;
+    margin-top: 20px;
+}
+.footerLinkList{
+    margin: 10px;
+}
+.footerLinkList li{
+    list-style: none;
+    color: #fff;
+}
